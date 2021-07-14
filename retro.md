@@ -5,17 +5,17 @@
 #### Sprint 1
 
 ##### Mal:
--Lo dejamos para último momento. 
+- Lo dejamos para último momento. 
 
 ##### Bien:
--Nos pusimos de acuerdo rápido.
--Trabajamos de manera ágil. 
+- Nos pusimos de acuerdo rápido.
+- Trabajamos de manera ágil. 
 
 ##### Deberíamos empezar a hacer: 
--Organizarnos más. 
+- Organizarnos más. 
 
 ##### Deberíamos dejar de hacer:
--Dejarlo para último momento. 
+- Dejarlo para último momento. 
 
 #### _Integrantes_:
 
