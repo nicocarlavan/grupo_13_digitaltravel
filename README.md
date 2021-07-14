@@ -23,6 +23,9 @@ Ajustaremos la oferta de forma tal que abarque la mayor cantidad de público pos
 
 Elegimos estos sitios porque comercializan los mismos productos que nosotros (aereos, hoteles, etc.), y son líderes en el mercado, tienen un diseño y una estética agradable para el usuario, y una interfaz simple de utilizar.
 
+#### _Workboard_:
+- https://trello.com/b/RczdfQGN/digital-travel
+
 #### _Integrantes_:
 
 `Nicolás Fernández Carlavan`: Tengo 31 años, soy Analista de Sistemas, y estudio Ingenieria en Sistemas en UTN. Me interesa mucho la programación web, por eso me inscribí en este curso.
