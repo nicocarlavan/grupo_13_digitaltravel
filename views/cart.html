@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Travel</title>
+    <title>Mi Carrito - Digital Travel</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -31,13 +31,33 @@
                     <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
                     <li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
                     <li><a href="/register"><i class="fas fa-user-plus"></i></i></a></li>
-
                 </ul>
             </div>
         </nav>
     </header>
     <main>
+        <section>
+            <form action="/" method="POST" class="formcart">
+                <article>
+                    <img src="images/radisson.jpg" alt="Radisson New York" class="imagencart">
+                    <p>Radisson Hotel New York</p>
+                    <p>Habitación: Doble Deluxe</p>
+                    <p>IN: 11/09/2021</p>
+                    <p>OUT: 19/09/2021</p>
+                    <p>Precio: USD 529</p>
+                </article>
+                <article>
+                    <img src="images/ar.png" alt="Radisson New York" class="imagencart">
+                    <p>AR - Buenos Aires - New York - Buenos Aires</p>
+                    <p>IN: 10/09/2021 - AR1300 Sale: 22.30 Llega: 08.35</p>
+                    <p>OUT: 19/09/2021 - AR1301 Sale: 21.00 Llega: 04.05</p>
+                    <p>Precio: USD 750</p>
+                </article>
+                <button type="submit">Comprar</button>
+                <button type="reset">Vaciar carrito</button>
 
+            </form>
+        </section>
     </main>
     <footer>
 
