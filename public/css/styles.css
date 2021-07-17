@@ -86,7 +86,7 @@ min-width: 250px;
 }
 
 
-.formregister input, .formregister button, .formcart button{
+.formregister input, .formregister button, .formcart button, .formlogin button{
     width: 150%;
     min-width: 200px;
     max-width: 600px;
