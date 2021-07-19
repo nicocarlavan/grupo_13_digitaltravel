@@ -9,7 +9,7 @@
 }
 
 
-main {
+main{
     margin: 0 auto;
     background-color:rgb(167, 203, 216);
 }
@@ -77,7 +77,7 @@ min-width: 250px;
 }
 
 
-.formregister, .formcart{
+.formregister, .formcart, .formLogin input, .formLogin button{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +86,7 @@ min-width: 250px;
 }
 
 
-.formregister input, .formregister button, .formcart button, .formlogin button{
+.formregister input, .formregister button, .formcart button, .formLogin input, .formLogin button, .mainProductDetail{
     width: 150%;
     min-width: 200px;
     max-width: 600px;
@@ -96,7 +96,7 @@ min-width: 250px;
     margin: 10px;
 }
 
-.formregister button, .formcart button{
+.formregister button, .formcart button, .formLogin button{
     color:rgb(46, 45, 45);
     background-color:rgb(121, 205, 250)
 }
@@ -125,6 +125,16 @@ min-width: 250px;
 
     .formcart article p:hover{
         background-color: rgb(88, 111, 120);
-    }
+        width: 100%;
+        }
 
 }
+
+.flex-container {
+    display: flex;
+    flex-direction:row;
+    padding: 10px;
+    border: 2px black;
+    flex-flow: row;
+}
+
