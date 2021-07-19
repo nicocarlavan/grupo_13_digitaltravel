@@ -19,10 +19,9 @@ main section{
 }
 
 .homepaisaje {
-    background-image: url('/images/paisajefondo.jpg');
+    /*background-image: url('/images/paisajefondo.jpg');
     width: 80%;
-    background-size: cover;
-   
+    background-size: cover;*/
 }
 
 
