@@ -18,23 +18,42 @@ main section{
     margin: auto;
 }
 
-.homepaisaje {
-    /*background-image: url('/images/paisajefondo.jpg');
+/* .homepaisaje {
+    background-image: url('/images/paisajefondo.jpg');
     width: 80%;
-    background-size: cover;*/
-}
+    background-size: cover;
+   
+}*/
 
-
-.busqueda{
+.busquedas {
+    padding: 30px;
     display: flex;
-    justify-content: space-between;
-    justify-content: center;
-    width: 50%;
-    background-color: #FFF;
-    border: 1px solid #000;
-    padding: 2px;
+    flex-wrap: nowrap;
+}
+.propagandas article {
+    margin: auto;
+    text-align: center;
 
 }
+
+
+.imagenofertainicio{
+    width: 40%;
+    border-radius: 5px;
+    margin:auto;
+
+
+}
+
+.descofertainicio {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    position: relative;
+    padding: 15px;
+}
+
 
 main .ofertasinicio{
     display: flex;
@@ -43,10 +62,6 @@ main .ofertasinicio{
     background-color: #FFF;
 }
 
-.imagenofertainicio{
-    width: 20vw;
-    padding-bottom: 15px;
-}
 
 
 nav.navbar.navbar-inverse{
@@ -134,13 +149,25 @@ min-width: 250px;
 }
 
 .flex-container {
+    flex-direction: column;
     display: flex;
-    flex-direction:row;
     padding: 10px;
-    border: 2px black;
-    flex-flow: row;
 }
 
+
+.flex-container-2  { 
+   display: flex;
+   flex-direction: column;
+   justify-content:space-between;
+}
+
+.textoProduct{
+    text-align: justify;
+}
+
+.loginForm{
+    width: 50%;
+}
 
 footer section{
     display: flex;
@@ -169,7 +196,7 @@ footer section div p {
 .icono-footer {
     color: #1259c3;
     font-size: 2em;
-    padding-bottom: 10px;
+    padding-bottom: 1""0px;
 }
 
 
@@ -198,10 +225,31 @@ footer section div p {
         background-color: rgb(88, 111, 120);
         width: 100%;
         }
+   .descofertainicio {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    .descofertainicio article:hover {
+            box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    
+        }
 
 }
 
-
+@media (min-width:769px){
+    .flex-container {
+        display: flex;
+        padding: 50px;
+        border: 2px black;
+        flex-flow: row;
+    }
+    .flex-container section img{
+      width: 400px;  
+    }
+}
 
 
 
