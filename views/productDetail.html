@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Detalle del producto</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -18,7 +21,7 @@
         <div class="container-fluid">
             <div><a href="/"><img src="images/logoavion.png" alt="Logo Digital Travel" class="logo"></a></div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Digital Travel</a>
+                <a class="navbar-brand" href="/">Digital Travel</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#"><i class="fas fa-plane"></i> Aereos</a></li>
@@ -27,11 +30,29 @@
                 <li><a href="#"><i class="fas fa-car"></i> Autos</a></li>
                 <li><a href="#"><i class="fas fa-clinic-medical"></i> Asistencia</a></li>
                 <li><a href="#"><i class="fas fa-search-dollar"></i> Ofertas</a></li>
-                <li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
                 <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/register"><i class="fas fa-user-plus"></i></i></a></li>
             </ul>
         </div>
     </nav>
+    <ul class="burger-menu">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-bars burger"></i> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="fas fa-plane"></i> Aereos</a></li>
+                <li><a href="#"><i class="fas fa-hotel"></i> Hoteles</a></li>
+                <li><a href="#"><i class="fas fa-hiking"></i> Excursiones</a></li>
+                <li><a href="#"><i class="fas fa-car"></i> Autos</a></li>
+                <li><a href="#"><i class="fas fa-clinic-medical"></i> Asistencia</a></li>
+                <li><a href="#"><i class="fas fa-search-dollar"></i> Ofertas</a></li>
+                <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/register"><i class="fas fa-user-plus"></i></i></a></li>
+            </ul>
+        </li>
+    </ul>
 </header>
 <main>
 
@@ -42,14 +63,17 @@
 
             </section>
 
-            <section class="flex-container">
-                <h1 class="tituloProduct">
+            <section class="flex-container-2">
+                <div> <h2>
                     Producto
-                </h1>
-                <p>
-                    Acá va la descripción del producto.
-                </p>
-                <section class="precioProduct">Precio final</section>
+                </h2></div>
+                <div>
+                 descripción del producto
+                </div>
+                <div>
+                 fecha: 20 de enero al 1 de febrero
+                </div>
+                <div class="precioProduct">Precio final</div>
             </section>
         </div>
     </body>

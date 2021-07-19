@@ -136,10 +136,16 @@ min-width: 250px;
 
 .flex-container {
     display: flex;
-    flex-direction:row;
     padding: 10px;
     border: 2px black;
     flex-flow: row;
+}
+
+
+.flex-container-2  { 
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 
