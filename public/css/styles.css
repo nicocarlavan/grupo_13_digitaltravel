@@ -8,7 +8,12 @@
     min-width: 100px;
 }
 
+<<<<<<< HEAD
 main {
+=======
+
+main{
+>>>>>>> 8fb01c8d41c7317abe8658906a7c9cd378c970a6
     margin: 0 auto;
     background-color:rgb(167, 203, 216);
 }
@@ -109,7 +114,7 @@ min-width: 250px;
 }
 
 
-.formregister, .formcart{
+.formregister, .formcart, .formLogin input, .formLogin button{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,7 +123,7 @@ min-width: 250px;
 }
 
 
-.formregister input, .formregister button, .formcart button, .formlogin button{
+.formregister input, .formregister button, .formcart button, .formLogin input, .formLogin button, .mainProductDetail{
     width: 150%;
     min-width: 200px;
     max-width: 600px;
@@ -128,7 +133,7 @@ min-width: 250px;
     margin: 10px;
 }
 
-.formregister button, .formcart button{
+.formregister button, .formcart button, .formLogin button{
     color:rgb(46, 45, 45);
     background-color:rgb(121, 205, 250)
 }
@@ -188,9 +193,23 @@ footer section div p {
 
     .formcart article p:hover{
         background-color: rgb(88, 111, 120);
-    }
+        width: 100%;
+        }
 
+}
+
+.flex-container {
+    display: flex;
+    flex-direction:row;
+    padding: 10px;
+    border: 2px black;
+    flex-flow: row;
+}
+
+<<<<<<< HEAD
 }
 
 
 
+=======
+>>>>>>> 8fb01c8d41c7317abe8658906a7c9cd378c970a6
