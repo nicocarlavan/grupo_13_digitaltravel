@@ -33,3 +33,7 @@ app.get('/productDetail', (req, res) => {
 app.get('/cart', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/cart.html'))
 })
+
+app.post('/cart', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/cart.html'))
+})

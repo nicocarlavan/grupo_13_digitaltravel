@@ -10,7 +10,7 @@
 
 main {
     margin: 0 auto;
-    background-color:rgb(167, 203, 216);
+    background-color:rgb(254, 224, 161);
 }
 
 main section{
@@ -24,12 +24,23 @@ main section{
     background-size: cover;
    
 }*/
-
+/*
 .busquedas {
     padding: 30px;
-    display: flex;
-    flex-wrap: nowrap;
+    text-align: center;
 }
+
+.busquedas form{
+
+}
+
+.busquedas form input {
+border-radius: 5px;
+text-align: center;
+margin: 5px;
+}
+*/
+
 .propagandas article {
     margin: auto;
     text-align: center;
@@ -124,7 +135,7 @@ min-width: 250px;
 }
 
 
-.formregister, .formcart, .formLogin input, .formLogin button{
+.form, .formcart{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,7 +144,7 @@ min-width: 250px;
 }
 
 
-.formregister input, .formregister button, .formcart button, .formLogin input, .formLogin button, .mainProductDetail{
+.form input, .form button, .formcart button, .mainProductDetail{
     width: 150%;
     min-width: 200px;
     max-width: 600px;
@@ -141,9 +152,10 @@ min-width: 250px;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    
 }
 
-.formregister button, .formcart button, .formLogin button{
+.form button, .formcart button{
     color:rgb(46, 45, 45);
     background-color:rgb(121, 205, 250)
 }
@@ -207,7 +219,7 @@ footer section div p {
 
 @media (min-width: 769px) {
 
-    .formregister button:hover, .formcart button:hover{
+    .form button:hover, .formcart button:hover{
     color: #f0f9fe;
     background-color:rgb(0, 166, 255);
 

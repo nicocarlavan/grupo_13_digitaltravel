@@ -55,14 +55,17 @@
         </ul>
     </header>
     <main>
-        <div class='homepaisaje'>
-            <section class='busquedas'>
-                <form action="/" method="POST">
+        <div>
+            <section>
+                <form action="/" method="POST" class="form">
                     <input type="text" name="destino" required placeholder="¿A donde quiere ir?">
-                    <label for="date">¿Cuando quiere viajar?</label>
-                    <input type="date" name="date" required placeholder="¿Cuando quiere viajar?">
-                    <label for="date">Regreso</label>
-                    <input type="date" name="date" required placeholder="Regreso">
+                    <br>
+                    <label for="date">Fecha de entrada</label>
+                    <input type="date" name="date" required>
+                    <br>
+                    <label for="date">Fecha de salida</label>
+                    <input type="date" name="date" required>
+                    <button type="submit">Buscar</button>
                 </form>
             </section>
             <section class="ofertasinicio"></section>
