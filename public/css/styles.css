@@ -41,6 +41,8 @@ margin: 5px;
 }
 */
 
+
+
 .propagandas article {
     margin: auto;
     text-align: center;
@@ -49,32 +51,29 @@ margin: 5px;
 
 
 .imagenofertainicio{
-    width: 40%;
+    width: 100%;
     border-radius: 5px;
     margin:auto;
 
 
 }
 
+.imagebox{
+    width: 60%;
+    border-radius: 5px;
+    margin:auto;
+}
+
 .descofertainicio {
     width: 100%;
-    display: flex;
+
     flex-wrap: wrap;
-    align-items: baseline;
-    position: relative;
-    padding: 15px;
+    padding: 45px;
 }
 
-
-main .ofertasinicio{
+.descofertainicio div{
     display: flex;
-    justify-content: center;
-    justify-content: space-between;
-    background-color: #FFF;
 }
-
-
-
 nav.navbar.navbar-inverse{
     margin-bottom: 0px;
 
@@ -237,22 +236,32 @@ footer section div p {
         background-color: rgb(88, 111, 120);
         width: 100%;
         }
+
+    .propagandas{
+    display: flex;
+    }    
+
+    .propagandas article {
+        width: 33%;
+        margin: 20px;
+
+}
+
+        /*
    .descofertainicio {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-start;
-        }
+        }*/
+
     .descofertainicio article:hover {
             box-shadow: 0px 0px 10px rgb(100, 100, 100);
     
         }
 
-}
-
-@media (min-width:769px){
-    .flex-container {
+            .flex-container {
         display: flex;
         padding: 50px;
         border: 2px black;
@@ -261,7 +270,9 @@ footer section div p {
     .flex-container section img{
       width: 400px;  
     }
+
 }
+
 
 
 
