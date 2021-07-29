@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <%- include ("./partials/head") %>
+    <title>Digital Travel</title>
+</head>
+
+<body>
+    <header>
+        <%- include ("./partials/header") %>
+    </header>
+    <main>
+        <div>
+            <section>
+                <form action="/" method="POST" class="form">
+                    <input type="text" name="destino" required placeholder="¿A donde quiere ir?">
+                    <br>
+                    <label for="date">Fecha de entrada</label>
+                    <input type="date" name="date" required>
+                    <br>
+                    <label for="date">Fecha de salida</label>
+                    <input type="date" name="date" required>
+                    <button type="submit">Buscar</button>
+                </form>
+            </section>
+            <div class='propagandas'>
+                <article>
+                    <div class="imagebox">
+                        <img src="images/bariloche.jpg" alt="Bariloche" class='imagenofertainicio'>
+                    </div>
+
+                    <div class='descofertainicio'>
+                        <h3><a href='#'>Baroliche</a></h3>
+                        <p>Visita una de las ciudades mas lindas de Argentina</p>
+                        <p>10% off en vuelos y hoteles</p>
+                    </div>
+                </article>
+                <article>
+                    <div class="imagebox">
+                        <img src="images/hotelpresidente.jpg" alt="Hotelpresidente" class='imagenofertainicio'>
+                    </div>
+
+                    <div class='descofertainicio'>
+                        <h3><a href='#'>Hotel Presidente</a></h3>
+                        <p>Alojate en este increible hotel</p>
+                        <p>20% off</p>
+                        <p>$5000 /Noche</p>
+                    </div>
+                </article>
+                <article>
+                    <div class="imagebox">
+                        <img src="images/avionvolando.jpg" alt="Avion" class='imagenofertainicio'>
+                    </div>
+
+                    <div class='descofertainicio'>
+                        <h3><a href='#'>DIGITAL Airlines</a></h3>
+                        <p>Vola tranquilo</p>
+                        <p>20% off</p>
+                        <p></p>
+                    </div>
+                </article>
+            </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <%- include ("./partials/footer") %>
+    </footer>
+
+</body>
+
+</html>

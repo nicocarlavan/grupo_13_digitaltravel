@@ -19,7 +19,7 @@ app.use(express.static(publicPath));
 
 app.set("view engine","ejs");
 app.use(express.static('public'));
-app.set("views","./views");
+app.set("views","./src/views");
 
 
 app.listen(3000, () => {
