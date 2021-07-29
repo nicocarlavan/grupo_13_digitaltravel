@@ -37,3 +37,6 @@ app.get('/cart', (req, res) => {
 app.post('/cart', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/cart.html'))
 })
+
+//app.set("view engine","ejs");
+//app.use(express.static('public'));
