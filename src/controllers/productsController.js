@@ -6,6 +6,10 @@ const productsController = {
     cart: (req, res) => {
         res.render('./products/cart')
 
+    },
+
+    edicion: (req, res) => {
+        res.render ('./products/edicion')
     }
 
 }
