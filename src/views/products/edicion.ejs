@@ -3,23 +3,24 @@
 
 <head>
     <%- include ("../partials/head") %>
-    <title>Mi Carrito - Digital Travel</title>
+    <title>Agregar Producto</title>
 </head>
 
 <body>
     <header>
         <%- include ("../partials/header") %>
     </header>
-    <main>
+    <main class="tituloEdicion">
         <section>
-            <form>
+            <h1>Crear Articulo</h1>
+            <form method="POST" class='form'>
                 <input type="text" name="destino" required placeholder="Nombre del Producto">
                     <br>
                 <input type="text" name="destino" required placeholder="Descripcion">
                     <br>
-                <input type="image" name="destino" required placeholder="Imagen">
+                <input type="file" name="destino" required placeholder="Imagen">
                     <br>
-                <input type="text" name="destino" required placeholder="Categoria">
+                <input type="text" name="destino" accept=".jpg" required placeholder="Categoria">
                     <br>
                 <input type="text" name="destino" required placeholder="Precio">
                     <br>

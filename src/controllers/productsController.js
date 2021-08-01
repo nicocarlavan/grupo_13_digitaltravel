@@ -9,7 +9,14 @@ const productsController = {
     },
 
     edicion: (req, res) => {
-        res.render ('./products/edicion')
+        let edit = {
+            name: '',
+            description: '',
+            image:'',
+            category:'',
+            price: '',
+        }
+        res.render ('./products/edicion', { 'editInfo': edit})
     }
 
 }
