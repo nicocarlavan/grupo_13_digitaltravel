@@ -3,29 +3,46 @@
 
 <head>
     <%- include ("../partials/head") %>
-    <title>Agregar Producto</title>
+        <title>Agregar Producto</title>
 </head>
 
 <body>
     <header>
         <%- include ("../partials/header") %>
     </header>
-    <main class="tituloEdicion">
+    <main>
         <section>
-            <h1>Crear Articulo</h1>
-            <form method="POST" class='form'>
-                <input type="text" name="destino" required placeholder="Nombre del Producto">
+            <form action="/" method="POST" class='form'>
+                <h3>Crear Articulo</h3>
+                <% if (editInfo.id !=null ) {%>
+                    <input type="number" name="id" required placeholder="<%= editInfo.id %>">
                     <br>
-                <input type="text" name="destino" required placeholder="Descripcion">
+                    <input type="text" name="name" required placeholder="<%= editInfo.name %>">
                     <br>
-                <input type="file" name="destino" required placeholder="Imagen">
+                    <input type="text" name="description" required placeholder="<%= editInfo.description %>">
                     <br>
-                <input type="text" name="destino" accept=".jpg" required placeholder="Categoria">
+                    <input type="file" name="image" accept=".jpg" required placeholder="<%= editInfo.image %>">
                     <br>
-                <input type="text" name="destino" required placeholder="Precio">
+                    <input type="text" name="category" required placeholder="<%= editInfo.category %>">
                     <br>
-                
-                    <button type="submit">Crear</button>    
+                    <input type="text" name="price" required placeholder="<%= editInfo.price %>">
+                    <br>
+
+                    <% } else { %>
+                        <input type="number" name="id" required placeholder="Id">
+                        <br>
+                        <input type="text" name="name" required placeholder="Nombre del Producto">
+                        <br>
+                        <input type="text" name="description" required placeholder="Descripcion">
+                        <br>
+                        <input type="file" name="imagen" required placeholder="Imagen">
+                        <br>
+                        <input type="text" name="category" accept=".jpg" required placeholder="Categoria">
+                        <br>
+                        <input type="text" name="price" required placeholder="Precio">
+                        <br>
+                        <% } %>
+                            <button type="submit">Crear</button>
             </form>
         </section>
     </main>

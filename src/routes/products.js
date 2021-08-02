@@ -9,6 +9,9 @@ router.get('/cart', productsController.cart);
 
 router.post('/cart', productsController.cart);
 
-router.get('/edicion', productsController.edicion);
+router.get('/edicion/:id', productsController.edicion);
+
+router.get('/edicion/', productsController.edicion);
+
 
 module.exports = router;

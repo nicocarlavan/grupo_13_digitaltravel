@@ -10,13 +10,15 @@ const productsController = {
 
     edicion: (req, res) => {
         let edit = {
+            id: '',
             name: '',
             description: '',
-            image:'',
-            category:'',
+            image: '',
+            category: '',
             price: '',
-        }
-        res.render ('./products/edicion', { 'editInfo': edit})
+        };
+        edit.id = req.params.id;
+        res.render('./products/edicion', { 'editInfo': edit })
     }
 
 }

@@ -3,7 +3,7 @@
 
 <head>
     <%- include ("../partials/head") %>
-    <title>Detalle del producto</title>
+        <title>Detalle del producto</title>
 </head>
 
 <header>
@@ -14,7 +14,7 @@
     <body>
         <div class="flex-container">
             <section>
-                <img width=200px src="images/maldivas.jpg" alt="Foto de las Maldivas">
+                <img width=200px src="/images/maldivas.jpg" alt="Foto de las Maldivas">
 
             </section>
 
@@ -42,13 +42,16 @@
                     A las parejas les encanta la ubicación — Le han puesto un 9,6 para viajes de dos personas.
 
                 </div>
+                <br>
                 <div>
-                    fecha: 20 de enero al 1 de febrero
+                    Fecha: 20/01/2022 - 01/02/2022
                 </div>
+                <br>
                 <div class="precioProduct">Precio final: 4000usd</div>
+                <br>
                 <div>
                     <form action="/cart" method="POST" class="formregister">
-                        <button type="submit">Agregar al carrito</button>
+                        <button type="submit" class="button">Agregar al carrito</button>
                     </form>
                 </div>
             </section>
