@@ -2,8 +2,8 @@
 <html>
 
 <head>
- <%- include ("./partials/head") %>
-    <title>Digital Travel</title>
+    <%- include ("./partials/head") %>
+        <title>Digital Travel</title>
 </head>
 
 <body>
@@ -24,44 +24,60 @@
                     <button type="submit">Buscar</button>
                 </form>
             </section>
-            <div class='propagandas'>
-                <article>
-                    <div class="imagebox">
-                        <img src="images/bariloche.jpg" alt="Bariloche" class='imagenofertainicio'>
+
+            <div class="container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <% for (let i=0; i < discountProducts.length; i++ ) { %>
+                            <% if (i==0) { %>
+                                <li data-target="#myCarousel" class="active"></li>
+                                <% } else { %>
+                                    <li data-target="#myCarousel"></li>
+                                    <% } %>
+                                        <% } %>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <% for (let i=0; i < discountProducts.length; i++ ) { %>
+                            <% if (i==0) { %>
+
+                                <div class="item active">
+                                    <a href="/products/productdetail/<%= discountProducts[i].id %>"><img
+                                            src="/images/products/<%= discountProducts[i].image %>"
+                                            alt="<%= discountProducts[i].name %>" style="width:100%;"></a>
+                                    <div class="carousel-caption">
+                                        <h3>
+                                            <%= discountProducts[i].name %>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <% } else { %>
+                                    <div class="item">
+                                        <a href="/products/productdetail/<%= discountProducts[i].id %>"></a><img
+                                            src="/images/products/<%= discountProducts[i].image %>"
+                                            alt="<%= discountProducts[i].name %>" style="width:100%;"></a>
+                                        <div class="carousel-caption">
+                                            <h3>
+                                                <%= discountProducts[i].name %>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                        <% } %>
+
                     </div>
 
-                    <div class='descofertainicio'>
-                        <h3><a href='#'>Baroliche</a></h3>
-                        <p>Visita una de las ciudades mas lindas de Argentina</p>
-                        <p>10% off en vuelos y hoteles</p>
-                    </div>
-                </article>
-                <article>
-                    <div class="imagebox">
-                        <img src="images/hotelpresidente.jpg" alt="Hotelpresidente" class='imagenofertainicio'>
-                    </div>
-
-                    <div class='descofertainicio'>
-                        <h3><a href='#'>Hotel Presidente</a></h3>
-                        <p>Alojate en este increible hotel</p>
-                        <p>20% off</p>
-                        <p>$5000 /Noche</p>
-                    </div>
-                </article>
-                <article>
-                    <div class="imagebox">
-                        <img src="images/avionvolando.jpg" alt="Avion" class='imagenofertainicio'>
-                    </div>
-
-                    <div class='descofertainicio'>
-                        <h3><a href='#'>DIGITAL Airlines</a></h3>
-                        <p>Vola tranquilo</p>
-                        <p>20% off</p>
-                        <p></p>
-                    </div>
-                </article>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-            </section>
+
         </div>
     </main>
     <footer>

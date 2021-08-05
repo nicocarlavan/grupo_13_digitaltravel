@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ("../partials/head") %>
+        <title>Listado de Productos</title>
+</head>
+
+<header>
+    <%- include ("../partials/header") %>
+</header>
+<main>
+
+    <body>
+        <div class="products-list">
+            <% for( let i=0; i < products.length; i++ ) { %>
+                <article>
+                    <section>
+                        <img class="imagenofertainicio" src="/images/products/<%= products[i].image %>" alt="Foto">
+
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>
+                                <%= products[i].name %>
+                                    <% if (products[i].discount=="true" ) {%>
+                                        <img src="/images/sale.png" class="sale" alt="Foto">
+                                        <% }%>
+                            </h2>
+                        </div>
+                        <div>
+                            <%= products[i].description %>
+                        </div>
+                        <br>
+                        <div>
+                            Tipo de habitación: <%= products[i].room %>
+                        </div>
+                        <br>
+                        <div>
+                            Categoría de Hotel: <%= products[i].category %>
+                        </div>
+                        <br>
+                        <div>
+                            Ciudad: <%= products[i].city %>
+                        </div>
+                        <br>
+                        <div>Tarifa por noche: USD <%= products[i].price %>
+
+                        </div>
+                        <br>
+                        <div>
+                            <form action="/cart" method="POST">
+                                <button type="submit" class="button">Eliminar</button>
+                            </form>
+                            <form action="/cart" method="POST">
+                                <button type="submit" class="button">Editar</button>
+                            </form>
+
+                        </div>
+                    </section>
+                </article>
+                <% } %>
+
+        </div>
+    </body>
+</main>
+<footer>
+    <%- include ("../partials/footer") %>
+</footer>
+
+</html>

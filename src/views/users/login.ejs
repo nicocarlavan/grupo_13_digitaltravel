@@ -3,29 +3,29 @@
 
 <head>
     <%- include ("../partials/head") %>
-    <title>Login - Digital Travel</title>
+        <title>Login - Digital Travel</title>
 </head>
 
 <body>
-    
+
     <header>
         <%- include ("../partials/header") %>
     </header>
-        <main>
-            <section>
-                <form action="/registro" method="POST" class="form">
-                    <h3>Login</h3>
-                    <input type="text" name="usuario" required placeholder="Usuario">
-                    <input type="password" name="contraseña" required placeholder="Contraseña">
-                    <button type="submit">Iniciar sesión </button>
-                </form>
-            </section>
-        </main>
+    <main>
+        <section>
+            <form action="/registro" method="POST" class="form">
+                <h3>Login</h3>
+                <input type="email" name="email" required placeholder="E-mail">
+                <input type="password" name="contraseña" required placeholder="Contraseña">
+                <button type="submit">Iniciar sesión </button>
+            </form>
+        </section>
+    </main>
 
 
-        <footer>
-            <%- include ("../partials/footer") %>
-        </footer>
+    <footer>
+        <%- include ("../partials/footer") %>
+    </footer>
 </body>
 
 </html>

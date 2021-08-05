@@ -19,13 +19,17 @@
                     <br>
                     <input type="text" name="name" required placeholder="<%= editInfo.name %>">
                     <br>
-                    <input type="text" name="description" required placeholder="<%= editInfo.description %>">
+                    <input type="number" name="price" required placeholder="<%= editInfo.price %>">
                     <br>
-                    <input type="file" name="image" accept=".jpg" required placeholder="<%= editInfo.image %>">
+                    <input type="text" name="room" required placeholder="<%= editInfo.room %>">
                     <br>
                     <input type="text" name="category" required placeholder="<%= editInfo.category %>">
                     <br>
-                    <input type="text" name="price" required placeholder="<%= editInfo.price %>">
+                    <input type="text" name="city" required placeholder="<%= editInfo.city %>">
+                    <br>
+                    <input type="text" name="description" required placeholder="<%= editInfo.description %>">
+                    <br>
+                    <input type="file" name="image" accept=".jpg" required placeholder="<%= editInfo.image %>">
                     <br>
 
                     <% } else { %>
@@ -33,13 +37,17 @@
                         <br>
                         <input type="text" name="name" required placeholder="Nombre del Producto">
                         <br>
-                        <input type="text" name="description" required placeholder="Descripcion">
+                        <input type="number" name="price" required placeholder="Precio">
                         <br>
-                        <input type="file" name="imagen" required placeholder="Imagen">
+                        <input type="text" name="room" required placeholder="Tipo de habitación">
                         <br>
-                        <input type="text" name="category" accept=".jpg" required placeholder="Categoria">
+                        <input type="text" name="category" required placeholder="Categoria">
                         <br>
-                        <input type="text" name="price" required placeholder="Precio">
+                        <input type="text" name="city" required placeholder="Ciudad">
+                        <br>
+                        <input type="text" name="description" required placeholder="Descripción">
+                        <br>
+                        <input type="file" name="image" accept=".jpg" required placeholder="Imagen">
                         <br>
                         <% } %>
                             <button type="submit">Crear</button>

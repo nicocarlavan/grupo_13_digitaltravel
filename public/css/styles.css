@@ -6,8 +6,17 @@
     width: 12vw;
     padding: 15px;
     min-width: 100px;
+    color: rgb(173, 130, 0);
 }
 
+.title{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 40px;
+    color: rgb(173, 130, 59);
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+}
 main {
     margin: 0 auto;
     background-color:rgba(241, 240, 238, 0.899);
@@ -17,30 +26,6 @@ main section{
     width: 50%;
     margin: auto;
 }
-
-/* .homepaisaje {
-    background-image: url('/images/paisajefondo.jpg');
-    width: 80%;
-    background-size: cover;
-   
-}*/
-/*
-.busquedas {
-    padding: 30px;
-    text-align: center;
-}
-
-.busquedas form{
-
-}
-
-.busquedas form input {
-border-radius: 5px;
-text-align: center;
-margin: 5px;
-}
-*/
-
 
 
 .propagandas article {
@@ -58,8 +43,7 @@ margin: 5px;
     width: 100%;
     border-radius: 5px;
     margin:auto;
-
-
+    padding: 20px;
 }
 
 .imagebox{
@@ -70,22 +54,21 @@ margin: 5px;
 
 .descofertainicio {
     width: 100%;
-
     flex-wrap: wrap;
     padding: 45px;
 }
 
-.descofertainicio div{
-    display: flex;
+.descofertainicio h3 a{
+    text-decoration: none;
 }
+
 nav.navbar.navbar-inverse{
     margin-bottom: 0px;
-
 }
 
 
 nav.navbar.navbar-inverse div ul{
-    display: none
+    display: none;
 }
 
 
@@ -150,7 +133,6 @@ min-width: 250px;
 .form input, .form button, .formcart button, .mainProductDetail, .button{
     width: 150%;
     min-width: 200px;
-    max-width: 600px;
     border: none;
     border-radius: 10px;
     padding: 10px;
@@ -167,17 +149,21 @@ min-width: 250px;
     width: 100%;
 }
 
-.flex-container {
-    flex-direction: column;
+.products-list{
     display: flex;
-    padding: 10px;
+    justify-content: space-between;
+    flex-flow: column;
+
 }
 
+.products-list article{
+    display: flex;
+    padding: 20px;
+}
 
-.flex-container-2  { 
-   display: flex;
-   flex-direction: column;
-   justify-content:space-between;
+.sale{
+    width: 50px;
+    color: red;
 }
 
 .textoProduct{
@@ -190,7 +176,6 @@ min-width: 250px;
 
 footer section{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     background-color: #222;
 }
@@ -218,14 +203,27 @@ footer section div p {
     padding-bottom: 10px;
 }
 
+
+
+
+
 @media (min-width: 361px) {
 
 
 }
 
+
+
+
 @media (min-width: 769px) {
 
-    .form button:hover, .formcart button:hover{
+    .title:hover{
+    color: rgb(172, 117, 29);
+    text-decoration: none;
+
+}
+
+    .form button:hover, .formcart button:hover, form button:hover{
     color: #f0f9fe;
     background-color:rgb(0, 166, 255);
 
@@ -254,21 +252,12 @@ footer section div p {
 
 }
 
-        /*
-   .descofertainicio {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-        }*/
-
     .descofertainicio article:hover {
             box-shadow: 0px 0px 10px rgb(100, 100, 100);
     
         }
 
-            .flex-container {
+    .flex-container {
         display: flex;
         padding: 50px;
         border: 2px black;
@@ -276,6 +265,10 @@ footer section div p {
     }
     .flex-container section img{
       width: 400px;  
+    }
+
+    .links {
+    padding-top: 100px;
     }
 
 }
