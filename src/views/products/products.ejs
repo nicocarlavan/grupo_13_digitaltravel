@@ -50,10 +50,10 @@
                         </div>
                         <br>
                         <div>
-                            <form action="/cart" method="POST">
+                            <form action="/products/delete/<%= products[i].id %>" method="POST">
                                 <button type="submit" class="button">Eliminar</button>
                             </form>
-                            <form action="/cart" method="POST">
+                            <form action="/products/edit/<%= products[i].id %>" method="POST">
                                 <button type="submit" class="button">Editar</button>
                             </form>
 

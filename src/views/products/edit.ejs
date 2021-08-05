@@ -12,11 +12,9 @@
     </header>
     <main>
         <section>
-            <form action="/" method="POST" class='form'>
-                <h3>Crear Articulo</h3>
-                <% if (editInfo.id !=null ) {%>
-                    <input type="number" name="id" required placeholder="<%= editInfo.id %>">
-                    <br>
+            <% if (editInfo.id !=null ) {%>
+                <form action="/" method="POST" class='form'>
+                    <h3>Editar Articulo</h3>
                     <input type="text" name="name" required placeholder="<%= editInfo.name %>">
                     <br>
                     <input type="number" name="price" required placeholder="<%= editInfo.price %>">
@@ -29,12 +27,15 @@
                     <br>
                     <input type="text" name="description" required placeholder="<%= editInfo.description %>">
                     <br>
+                    <input type="text" name="discount" required placeholder="<%= editInfo.discount %>">
+                    <br>
                     <input type="file" name="image" accept=".jpg" required placeholder="<%= editInfo.image %>">
                     <br>
-
-                    <% } else { %>
-                        <input type="number" name="id" required placeholder="Id">
-                        <br>
+                    <button type="submit">Editar</button>
+                </form>
+                <% } else { %>
+                    <form action="/products/store" method="POST" enctype="multipart/form-data" class="form">
+                        <h3>Crear Articulo</h3>
                         <input type="text" name="name" required placeholder="Nombre del Producto">
                         <br>
                         <input type="number" name="price" required placeholder="Precio">
@@ -47,11 +48,15 @@
                         <br>
                         <input type="text" name="description" required placeholder="Descripción">
                         <br>
+                        <input type="text" name="discount" required placeholder="Descuento">
+                        <br>
                         <input type="file" name="image" accept=".jpg" required placeholder="Imagen">
                         <br>
-                        <% } %>
-                            <button type="submit">Crear</button>
-            </form>
+                        <button type="submit">Crear</button>
+                    </form>
+                    <% } %>
+
+                        </form>
         </section>
     </main>
     <footer>
