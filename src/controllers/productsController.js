@@ -18,7 +18,7 @@ const productsController = {
 
     },
 
-    edicion: (req, res) => {
+    edit: (req, res) => {
         let product = {
             id: '',
             name: '',
@@ -30,9 +30,27 @@ const productsController = {
             image: '',
             discount: '',
         };
-        product.id = req.params.id;
-        res.render('./products/edit', { 'editInfo': product })
+        let productToEdit = products.find(element => element.id == req.params.id);
+        res.render('./products/edit', {'editInfo': productToEdit })
     },
+
+     /*update: (req, res) =>{
+        products.forEach(element => {
+            if (element.id == req.params.id) {//
+             element.name = req.body.name
+             element.price = req.body.price
+             element.room = req.body.room
+             element.category = req.body.category
+             element.city = req.body.city
+             element.description = req.body.description
+             element.image = req.body.image
+             element.discount = req.body.discount
+        }
+        
+        })
+             //res.redirect ('products/prdouctDetal/'+id)
+    }*/
+
     store: (req, res) => {
         let newProduct = {
             id: products[products.length - 1].id + 1,

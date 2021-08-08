@@ -25,9 +25,11 @@ router.get('/cart', productsController.cart);
 
 router.post('/cart', productsController.cart);
 
-router.get('/edit/:id', productsController.edicion);
+router.get('/edit/:id', productsController.edit);
 
-router.get('/create/', productsController.edicion);
+//router.put('/edit/:id', productsController.update);//
+
+router.get('/create/', productsController.edit);
 
 router.post('/store', upload.single('image'), productsController.store);
 
