@@ -37,7 +37,16 @@
 - Dejar tareas para último momento.
 
 
-
+#### Sprint 3: 
+##### Mal:
+- Si bien nos organizamos un poco mejor y llegamos a entregar el trabajo a tiempo, nuevamente terminamos muy sobre la hora, cosa que podría mejorarse. 
+##### Bien:
+- Mejoramos la estética del home de la página, un extra que vuelve a nuestro sitio más atractivo. 
+- Hubo buena comunicación, trabajamos en grupo y nos pusimos de acuerdo.
+##### Deberíamos empezar a hacer:
+- Empezar a trabajar en el sprint desde la entrega de las consignas. 
+##### Deberiamos dejar de hacer:
+- Dejar pasar el tiempo sin empezar el trabajo. 
 
 #### _Integrantes_:
 
