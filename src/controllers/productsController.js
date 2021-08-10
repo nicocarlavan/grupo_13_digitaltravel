@@ -4,6 +4,7 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+
 const productsController = {
     index: (req, res) => {
         res.render('./products/products', { products: products });
@@ -34,7 +35,7 @@ const productsController = {
         res.render('./products/edit', {'editInfo': productToEdit })
     },
 
-     /*update: (req, res) =>{
+     update: (req, res) =>{
         products.forEach(element => {
             if (element.id == req.params.id) {//
              element.name = req.body.name
@@ -43,13 +44,13 @@ const productsController = {
              element.category = req.body.category
              element.city = req.body.city
              element.description = req.body.description
-             element.image = req.body.image
              element.discount = req.body.discount
         }
         
         })
-             res.redirect ('products/prdouctDetal/'+id)
-    }*/
+             fs.writeFileSync(productsFilePath, JSON.stringify(products));
+             res.redirect('/products/productDetail/'+req.params.id)
+    },
 
     store: (req, res) => {
         let newProduct = {

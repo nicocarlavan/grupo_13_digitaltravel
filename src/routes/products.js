@@ -27,7 +27,7 @@ router.post('/cart', productsController.cart);
 
 router.get('/edit/:id', productsController.edit);
 
-//router.put('/edit/:id', productsController.update);//
+router.put('/edit/:id', productsController.update);
 
 router.get('/create/', productsController.edit);
 

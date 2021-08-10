@@ -13,7 +13,7 @@
     <main>
         <section>
             <% if (editInfo.id !=null ) {%>
-                <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class='form'>
+                <form action="/products/edit/<%=editInfo.id%>?_method=PUT" method="POST" class='form'>
                     <h3>Editar Articulo</h3>
                     <input type="text" name="name" required placeholder="Nombre del Producto" value="<%= editInfo.name %>">
                     <br>
@@ -29,7 +29,8 @@
                     <br>
                     <input type="text" name="discount" required placeholder="Descuento" value="<%= editInfo.discount %>">
                     <br>
-                    <input type="file" name="image" accept=".jpg" required placeholder="Imagen" value="<%= editInfo.image %>">
+                    <img src="/images/products/<%= editInfo.image%>" alt="">
+                    <input type="file" name="image" accept=".jpg" >
                     <br>
                     <button type="submit">Editar</button>
                 </form>
