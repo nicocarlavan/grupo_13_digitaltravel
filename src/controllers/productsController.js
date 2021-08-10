@@ -48,7 +48,7 @@ const productsController = {
         }
         
         })
-             //res.redirect ('products/prdouctDetal/'+id)
+             res.redirect ('products/prdouctDetal/'+id)
     }*/
 
     store: (req, res) => {
