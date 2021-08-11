@@ -1,1 +1,90 @@
-[{"id":1,"name":"Radisson New York Midtown-Fifth Avenue","price":"240","room":"STANDARD","category":"4","city":"NYC","description":"Radisson Hotel New York Midtown-Fifth Avenue se encuentra en Nueva York, en la zona de Midtown, que está en el centro y cerca de una estación de metro. Teatro Radio City Music Hall y Broadway son lugares de visita obligada para los aficionados a la cultura; añádelos a tu itinerario junto con Catedral de San Patricio y Times Square. ¿Te apetece disfrutar de un evento o un partido? Puedes buscar el calendario de Madison Square Garden o Estadio Yankee Stadium. Los huéspedes destacan lo fácil que es moverse en transporte público desde este hotel: la Estación de metro 47 - 50 Sts - Rockefeller Center está a 5 minutos a pie y la Estación de metro 7 Av. (E 53rd St.) queda a 7 minutos.","image":"img-radissonnyc.jpg","discount":"true"},{"id":2,"name":"Sofitel Dubai Jumeirah Beach","price":290,"room":"OCEANVIEW","category":"5","city":"DXB","description":"El Sofitel Dubai Jumeirah Beach se encuentra en el paseo The Walk del complejo Jumeirah Beach Residence. Este hotel de lujo de 5 estrellas está a pocos pasos del centro comercial The Beach, el destino de restauración y de ocio más importante frente al mar de Dubái. Dispone de piscina al aire libre y WiFi gratis. Las habitaciones y las suites son amplias y cuentan con muebles modernos, balcón privado con vistas al golfo Pérsico, TV de pantalla plana moderna, sistema de sonido Bose y minibar.","image":"img-sofiteldxb.jpg","discount":"false"},{"id":3,"name":"Royal Palm South Beach Miami","price":210,"room":"SUITE","category":"4","city":"MIA","description":"El Royal Palm South Beach Miami está ubicado junto a la playa de Miami Beach. Además, este complejo se halla a 5 minutos a pie del centro comercial abierto de la calle Lincoln Road. Alberga el bar The Compass Rose, que ofrece una selección de cafés y tés, así como cócteles por la noche. El restaurante Florida Cookery sirve desayunos al aire libre. Por su parte, el restaurante Byblos Miami propone platos del mediterráneo oriental con un toque local. Las habitaciones y las suites disponen de WiFi gratuita y TV de pantalla plana de 42 pulgadas. Además, tienen zona de estar y baño privado. Algunas habitaciones y suites incluyen balcón.","image":"img-royalpalmmia.jpg","discount":"true"},{"id":4,"name":"Nautilus by Arlo","price":190,"room":"STANDARD","category":"4","city":"MIA","description":"El Nautilus es un establecimiento de la década de 1950, ubicado frente al mar, que cuenta con una piscina al aire libre rodeada de cabañas, servicios de spa y un restaurante. Este alojamiento sirve un desayuno buffet americano completo y se encuentra a 10 minutos a pie del distrito de South Beach. Las habitaciones presentan un estilo moderno con fotografías de Sante D’Orazio y muebles de cuero y madera oscura. Todas disponen de TV de pantalla plana de 48 pulgadas, y algunas también tienen balcón con vistas al mar, a la piscina o a la ciudad.","image":"img-nautilusmia.jpg","discount":"false"},{"id":5,"name":"Four Seasons London at Park Lane","price":480,"room":"STANDARD","category":"5","city":"LON","description":"Este hotel de Park Lane, situado en el centro de Londres, entre Hyde Park y los jardines del palacio de Buckingham, ofrece vistas impresionantes a la ciudad. Hay WiFi gratuita en todas las instalaciones. La estación de tren de Londres Victoria está a 15 minutos a pie del hotel y la abadía de Westminster, a 1,9 km. Las habitaciones del Four Seasons Hotel London at Park Lane presentan un diseño elegante y muchas de ellas gozan de vistas pintorescas. Todas las habitaciones disponen de baño moderno, TV, albornoces, secador de pelo y minibar. Algunas de ellas también tienen escritorio y zona de estar.","image":"img-fourseasonslon.jpg","discount":"false"},{"id":6,"name":"Intercontinental Paris Le Grand","price":420,"room":"SUITE","category":"5","city":"PAR","description":"El Intercontinental Paris Le Grand se encuentra a tan solo 30 metros de la ópera Garnier y de la estación de metro de Ópera. Alberga 2 restaurantes y un gimnasio con sauna y tratamientos de masaje. Las habitaciones de Le Grand están equipadas con conexión a internet y TV vía satélite y por cable. Algunas tienen vistas a la ópera.","image":"img-intercontinentalpar.jpg","discount":"true"},{"id":7,"name":"Faena Hotel Buenos Aires","price":390,"room":"SUITE","category":"5","city":"BUE","description":"El Faena Hotel Buenos Aires se encuentra en la exclusiva zona de Puerto Madero y es un lujoso hotel de 5 estrellas de diseño situado en un edificio impresionante con spa y piscina. Además, hay WiFi. Las habitaciones del Faena Hotel presentan una decoración elegante y cuentan con cortinas automáticas de terciopelo y persianas venecianas. Todas tienen sistema de cine en casa y minibar.","image":"img-faenabue.jpg","discount":"true"},{"id":8,"name":"Mandarin Oriental Kuala Lumpur","price":510,"room":"CITYVIEW","category":"5","city":"KUL","description":"El Mandarin Oriental, Kuala Lumpur, ofrece elegantes suites y apartamentos con vistas al perfil urbano y al parque KLCC. El hotel ofrece una piscina infinita al aire libre con camas balinesas y tumbonas junto a la piscina. El Mandarin Oriental se encuentra entre las emblemáticas Torres Petronas y los exuberantes jardines del parque municipal de Kuala Lumpur. El hotel está a unos 45 km del aeropuerto internacional de Kuala Lumpur.","image":"img-mandarinkul.jpg","discount":"false"}]
+[
+    {
+        "id": 1,
+        "name": "Radisson New York Midtown-Fifth Avenue",
+        "price": "240",
+        "room": "STANDARD",
+        "category": "4",
+        "city": "NYC",
+        "description": "Radisson Hotel New York Midtown-Fifth Avenue se encuentra en Nueva York, en la zona de Midtown, que está en el centro y cerca de una estación de metro. Teatro Radio City Music Hall y Broadway son lugares de visita obligada para los aficionados a la cultura; añádelos a tu itinerario junto con Catedral de San Patricio y Times Square. ¿Te apetece disfrutar de un evento o un partido? Puedes buscar el calendario de Madison Square Garden o Estadio Yankee Stadium. Los huéspedes destacan lo fácil que es moverse en transporte público desde este hotel: la Estación de metro 47 - 50 Sts - Rockefeller Center está a 5 minutos a pie y la Estación de metro 7 Av. (E 53rd St.) queda a 7 minutos.",
+        "image": "img-radissonnyc.jpg",
+        "discount": "true"
+    },
+    {
+        "id": 2,
+        "name": "Sofitel Dubai Jumeirah Beach",
+        "price": 290,
+        "room": "OCEANVIEW",
+        "category": "5",
+        "city": "DXB",
+        "description": "El Sofitel Dubai Jumeirah Beach se encuentra en el paseo The Walk del complejo Jumeirah Beach Residence. Este hotel de lujo de 5 estrellas está a pocos pasos del centro comercial The Beach, el destino de restauración y de ocio más importante frente al mar de Dubái. Dispone de piscina al aire libre y WiFi gratis. Las habitaciones y las suites son amplias y cuentan con muebles modernos, balcón privado con vistas al golfo Pérsico, TV de pantalla plana moderna, sistema de sonido Bose y minibar.",
+        "image": "img-sofiteldxb.jpg",
+        "discount": "false"
+    },
+    {
+        "id": 3,
+        "name": "Royal Palm South Beach Miami",
+        "price": 210,
+        "room": "SUITE",
+        "category": "4",
+        "city": "MIA",
+        "description": "El Royal Palm South Beach Miami está ubicado junto a la playa de Miami Beach. Además, este complejo se halla a 5 minutos a pie del centro comercial abierto de la calle Lincoln Road. Alberga el bar The Compass Rose, que ofrece una selección de cafés y tés, así como cócteles por la noche. El restaurante Florida Cookery sirve desayunos al aire libre. Por su parte, el restaurante Byblos Miami propone platos del mediterráneo oriental con un toque local. Las habitaciones y las suites disponen de WiFi gratuita y TV de pantalla plana de 42 pulgadas. Además, tienen zona de estar y baño privado. Algunas habitaciones y suites incluyen balcón.",
+        "image": "img-royalpalmmia.jpg",
+        "discount": "true"
+    },
+    {
+        "id": 4,
+        "name": "Nautilus by Arlo",
+        "price": 190,
+        "room": "STANDARD",
+        "category": "4",
+        "city": "MIA",
+        "description": "El Nautilus es un establecimiento de la década de 1950, ubicado frente al mar, que cuenta con una piscina al aire libre rodeada de cabañas, servicios de spa y un restaurante. Este alojamiento sirve un desayuno buffet americano completo y se encuentra a 10 minutos a pie del distrito de South Beach. Las habitaciones presentan un estilo moderno con fotografías de Sante D’Orazio y muebles de cuero y madera oscura. Todas disponen de TV de pantalla plana de 48 pulgadas, y algunas también tienen balcón con vistas al mar, a la piscina o a la ciudad.",
+        "image": "img-nautilusmia.jpg",
+        "discount": "false"
+    },
+    {
+        "id": 5,
+        "name": "Four Seasons London at Park Lane",
+        "price": 480,
+        "room": "STANDARD",
+        "category": "5",
+        "city": "LON",
+        "description": "Este hotel de Park Lane, situado en el centro de Londres, entre Hyde Park y los jardines del palacio de Buckingham, ofrece vistas impresionantes a la ciudad. Hay WiFi gratuita en todas las instalaciones. La estación de tren de Londres Victoria está a 15 minutos a pie del hotel y la abadía de Westminster, a 1,9 km. Las habitaciones del Four Seasons Hotel London at Park Lane presentan un diseño elegante y muchas de ellas gozan de vistas pintorescas. Todas las habitaciones disponen de baño moderno, TV, albornoces, secador de pelo y minibar. Algunas de ellas también tienen escritorio y zona de estar.",
+        "image": "img-fourseasonslon.jpg",
+        "discount": "false"
+    },
+    {
+        "id": 6,
+        "name": "Intercontinental Paris Le Grand",
+        "price": 420,
+        "room": "SUITE",
+        "category": "5",
+        "city": "PAR",
+        "description": "El Intercontinental Paris Le Grand se encuentra a tan solo 30 metros de la ópera Garnier y de la estación de metro de Ópera. Alberga 2 restaurantes y un gimnasio con sauna y tratamientos de masaje. Las habitaciones de Le Grand están equipadas con conexión a internet y TV vía satélite y por cable. Algunas tienen vistas a la ópera.",
+        "image": "img-intercontinentalpar.jpg",
+        "discount": "true"
+    },
+    {
+        "id": 7,
+        "name": "Faena Hotel Buenos Aires",
+        "price": 390,
+        "room": "SUITE",
+        "category": "5",
+        "city": "BUE",
+        "description": "El Faena Hotel Buenos Aires se encuentra en la exclusiva zona de Puerto Madero y es un lujoso hotel de 5 estrellas de diseño situado en un edificio impresionante con spa y piscina. Además, hay WiFi. Las habitaciones del Faena Hotel presentan una decoración elegante y cuentan con cortinas automáticas de terciopelo y persianas venecianas. Todas tienen sistema de cine en casa y minibar.",
+        "image": "img-faenabue.jpg",
+        "discount": "true"
+    },
+    {
+        "id": 8,
+        "name": "Mandarin Oriental Kuala Lumpur",
+        "price": 510,
+        "room": "CITYVIEW",
+        "category": "5",
+        "city": "KUL",
+        "description": "El Mandarin Oriental, Kuala Lumpur, ofrece elegantes suites y apartamentos con vistas al perfil urbano y al parque KLCC. El hotel ofrece una piscina infinita al aire libre con camas balinesas y tumbonas junto a la piscina. El Mandarin Oriental se encuentra entre las emblemáticas Torres Petronas y los exuberantes jardines del parque municipal de Kuala Lumpur. El hotel está a unos 45 km del aeropuerto internacional de Kuala Lumpur.",
+        "image": "img-mandarinkul.jpg",
+        "discount": "false"
+    }
+]

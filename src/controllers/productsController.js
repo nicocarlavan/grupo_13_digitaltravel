@@ -32,24 +32,24 @@ const productsController = {
             discount: '',
         };
         let productToEdit = products.find(element => element.id == req.params.id);
-        res.render('./products/edit', {'editInfo': productToEdit })
+        res.render('./products/edit', { 'productToEdit': productToEdit })
     },
 
-     update: (req, res) =>{
+    update: (req, res) => {
         products.forEach(element => {
             if (element.id == req.params.id) {//
-             element.name = req.body.name
-             element.price = req.body.price
-             element.room = req.body.room
-             element.category = req.body.category
-             element.city = req.body.city
-             element.description = req.body.description
-             element.discount = req.body.discount
-        }
-        
+                element.name = req.body.name
+                element.price = req.body.price
+                element.room = req.body.room
+                element.category = req.body.category
+                element.city = req.body.city
+                element.description = req.body.description
+                element.discount = req.body.discount
+            }
+
         })
-             fs.writeFileSync(productsFilePath, JSON.stringify(products));
-             res.redirect('/products/productDetail/'+req.params.id)
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        res.redirect('/products/productDetail/' + req.params.id)
     },
 
     store: (req, res) => {

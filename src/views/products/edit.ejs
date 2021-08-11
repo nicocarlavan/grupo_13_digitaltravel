@@ -12,25 +12,30 @@
     </header>
     <main>
         <section>
-            <% if (editInfo.id !=null ) {%>
-                <form action="/products/edit/<%=editInfo.id%>?_method=PUT" method="POST" class='form'>
+            <% if (productToEdit !=undefined ) {%>
+                <form action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="POST" class='form'>
                     <h3>Editar Articulo</h3>
-                    <input type="text" name="name" required placeholder="Nombre del Producto" value="<%= editInfo.name %>">
+                    <input type="text" name="name" required placeholder="Nombre del Producto"
+                        value="<%= productToEdit.name %>">
                     <br>
-                    <input type="number" name="price"  required placeholder="Precio" value="<%= editInfo.price %>">
+                    <input type="number" name="price" required placeholder="Precio" value="<%= productToEdit.price %>">
                     <br>
-                    <input type="text" name="room" required placeholder="Tipo de habitación" value="<%= editInfo.room %>">
+                    <input type="text" name="room" required placeholder="Tipo de habitación"
+                        value="<%= productToEdit.room %>">
                     <br>
-                    <input type="text" name="category" required placeholder="Categoria" value="<%= editInfo.category %>">
+                    <input type="text" name="category" required placeholder="Categoria"
+                        value="<%= productToEdit.category %>">
                     <br>
-                    <input type="text" name="city" required placeholder="Ciudad" value="<%= editInfo.city %>">
+                    <input type="text" name="city" required placeholder="Ciudad" value="<%= productToEdit.city %>">
                     <br>
-                    <input type="text" name="description" required placeholder="Descripción" value="<%= editInfo.description %>">
+                    <input type="text" name="description" required placeholder="Descripción"
+                        value="<%= productToEdit.description %>">
                     <br>
-                    <input type="text" name="discount" required placeholder="Descuento" value="<%= editInfo.discount %>">
+                    <input type="text" name="discount" required placeholder="Descuento"
+                        value="<%= productToEdit.discount %>">
                     <br>
-                    <img src="/images/products/<%= editInfo.image%>" alt="">
-                    <input type="file" name="image" accept=".jpg" >
+                    <img src="/images/products/<%= productToEdit.image%>" alt="">
+                    <input type="file" name="image" accept=".jpg">
                     <br>
                     <button type="submit">Editar</button>
                 </form>
