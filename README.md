@@ -4,7 +4,7 @@
 
 
 ##### Productos o servicios que ofrecemos
-La propuesta es vender viajes, incluyendo únicamente el alojamiento (hoteles). 
+Nuestro negocio está orientado a ofrecer todo tipo de alojamientos alrededor del mundo.
 
 ##### Público al que apuntamos
 Amantes de los viajes en general
