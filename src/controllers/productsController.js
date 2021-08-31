@@ -61,7 +61,7 @@ const productsController = {
             category: req.body.category,
             city: req.body.city,
             description: req.body.description,
-            image: req.file.originalname,
+            image: req.file.filename,
             discount: req.body.discount,
         };
         products.push(newProduct);

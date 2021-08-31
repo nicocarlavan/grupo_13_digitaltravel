@@ -4,55 +4,71 @@
         "firstName": "Nicolas",
         "lastName": "Fernandez",
         "email": "nico@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 2,
         "firstName": "Francesca",
         "lastName": "Colombres",
         "email": "fran@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 3,
         "firstName": "Gonzalo",
         "lastName": "Cardarelli",
         "email": "gonza@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 4,
         "firstName": "Juan",
         "lastName": "Lopez",
         "email": "juan@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 5,
         "firstName": "Federico",
         "lastName": "Vitale",
         "email": "fede@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 6,
         "firstName": "Estefania",
         "lastName": "Constantino",
         "email": "estefi@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 7,
         "firstName": "Carola",
         "lastName": "Velekson",
         "email": "caro@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
     },
     {
         "id": 8,
         "firstName": "Andrea",
         "lastName": "Ayala",
         "email": "andrea@gmail.com",
-        "password": "1234"
+        "password": "1234",
+        "image": "asd.jpg"
+    },
+    {
+        "id": 9,
+        "firstName": "Nicky",
+        "lastName": "Fernandez",
+        "email": "asd@asd.as",
+        "password": "123",
+        "image": "1630426673563.jpeg"
     }
 ]
