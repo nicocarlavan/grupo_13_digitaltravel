@@ -120,6 +120,9 @@ min-width: 250px;
     max-width: 600px;
 }
 
+.formError{
+color: red;
+}
 
 .form, .formcart{
     display: flex;

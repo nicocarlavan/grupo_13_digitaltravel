@@ -70,5 +70,13 @@
         "email": "asd@asd.as",
         "password": "123",
         "image": "1630426673563.jpeg"
+    },
+    {
+        "id": 10,
+        "firstName": "asd",
+        "lastName": "asd",
+        "email": "asd@asd.asd",
+        "password": "$2a$10$JwDE8V3UHpz8Es49zYOtkOqtoq5Bafa/.qMQb5tcuS0ctG0cAofcW",
+        "image": "1630778935996.jpeg"
     }
 ]

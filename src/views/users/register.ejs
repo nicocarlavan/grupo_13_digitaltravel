@@ -14,14 +14,64 @@
         <section>
             <form action="/register" method="POST" enctype="multipart/form-data" class="form">
                 <h3>Registrate</h3>
-                <input type="text" name="firstName" required placeholder="Nombre">
-                <input type="text" name="lastName" required placeholder="Apellido">
-                <input type="email" name="email" required placeholder="E-mail">
-                <input type="password" name="password" required placeholder="Contraseña">
-                <input type="password" name="repassword" required placeholder="Confirmar Contraseña">
-                <input type="file" name="image" accept=".jpg" required placeholder="Imagen de perfil">
-                <button type="submit">Registrarse</button>
-                <button type="reset">Borrar</button>
+                <br>
+                <% if (locals.errors && errors.firstName) { %>
+                    <div class="formError">
+                        <%= errors.firstName.msg %>
+                            <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
+                    </div>
+                    <% } %>
+                        <input type="text" name="firstName" placeholder="Nombre" class="form-control"
+                            value="<%= locals.oldData ? oldData.firstName : null %>">
+
+                        <% if (locals.errors && errors.lastName) { %>
+
+                            <div class="formError">
+                                <%= errors.lastName.msg %>
+                                    <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
+                            </div>
+                            <% } %>
+                                <input type="text" name="lastName" placeholder="Apellido" class="form-control"
+                                    value="<%= locals.oldData ? oldData.lastName : null %>">
+
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class="formError">
+                                        <%= errors.email.msg %>
+                                            <i class="fas fa-exclamation"
+                                                style="font-size: 20px; margin-left: 5px;"></i>
+                                    </div>
+                                    <% } %>
+                                        <input type="email" name="email" placeholder="E-mail" class="form-control"
+                                            value="<%= locals.oldData ? oldData.email : null %>">
+                                        <% if (locals.errors && errors.password) { %>
+                                            <div class="formError">
+                                                <%= errors.password.msg %>
+                                                    <i class="fas fa-exclamation"
+                                                        style="font-size: 20px; margin-left: 5px;"></i>
+                                            </div>
+                                            <% } %>
+                                                <input type="password" name="password" placeholder="Contraseña"
+                                                    class="form-control">
+                                                <% if (locals.errors && errors.repassword) { %>
+                                                    <div class="formError">
+                                                        <%= errors.repassword.msg %>
+                                                            <i class="fas fa-exclamation"
+                                                                style="font-size: 20px; margin-left: 5px;"></i>
+                                                    </div>
+                                                    <% } %>
+                                                        <input type="password" name="repassword"
+                                                            placeholder="Confirmar Contraseña" class="form-control">
+                                                        <% if (locals.errors && errors.image) { %>
+                                                            <div class="formError">
+                                                                <%= errors.image.msg %>
+                                                                    <i class="fas fa-exclamation"
+                                                                        style="font-size: 20px; margin-left: 5px;"></i>
+                                                            </div>
+                                                            <% } %>
+                                                                <input type="file" name="image" accept=".jpg"
+                                                                    placeholder="Imagen de perfil">
+                                                                <button type="submit">Registrarse</button>
+                                                                <button type="reset">Borrar</button>
             </form>
         </section>
     </main>
