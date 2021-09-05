@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ("../partials/head") %>
+        <title>Perfil - Digital Travel</title>
+</head>
+
+<body>
+
+    <header>
+        <%- include ("../partials/header") %>
+    </header>
+    <main>
+        <section>
+            <form action="/login" method="POST" class="form">
+                <h3>Perfil</h3>
+                <br>
+                <h2>Bienvenido <%= user.firstName %>
+                </h2>
+                <img src="/images/users/<%= user.image %>" alt="Imagen de usuario">
+                <div>
+                    <%= user.email %>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+
+    <footer>
+        <%- include ("../partials/footer") %>
+    </footer>
+</body>
+
+</html>

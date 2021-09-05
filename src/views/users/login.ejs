@@ -13,11 +13,19 @@
     </header>
     <main>
         <section>
-            <form action="/registro" method="POST" class="form">
+            <form action="/login" method="POST" class="form">
                 <h3>Login</h3>
-                <input type="email" name="email" required placeholder="E-mail">
-                <input type="password" name="contraseña" required placeholder="Contraseña">
-                <button type="submit">Iniciar sesión </button>
+                <br>
+                <% if (locals.errors && errors.email) { %>
+                    <div class="formError">
+                        <%= errors.email.msg %>
+                            <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
+                    </div>
+                    <% } %>
+                        <input type="email" name="email" required placeholder="E-mail">
+                        <input type="password" name="password" required placeholder="Contraseña">
+                        <input type="checkbox" name="rememberme">Recordar mi usuario
+                        <button type="submit">Iniciar sesión </button>
             </form>
         </section>
     </main>
