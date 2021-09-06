@@ -49,7 +49,7 @@ const usersController = {
     },
 
     registro: (req, res) => {
-        res.cookie()
+        req.cookies;
         res.render('./users/register');
 
     },
@@ -79,8 +79,10 @@ const usersController = {
             image: req.file.filename,
         };
 
-        let userCreated = User.create(newUser);
-        return res.redirect('/login');
+        let userToLoggin = User.create(newUser);
+        delete userToLoggin.password;
+        req.session.userLogged = userToLoggin;
+        return res.redirect('/profile');
 
     },
     logout: (req, res) => {

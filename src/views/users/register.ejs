@@ -21,7 +21,8 @@
                             <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                     </div>
                     <% } %>
-                        <input type="text" name="firstName" placeholder="Nombre" class="form-control"
+                        <input type="text" name="firstName" placeholder="Nombre"
+                            class="form-control <%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.firstName : null %>">
 
                         <% if (locals.errors && errors.lastName) { %>
@@ -31,7 +32,8 @@
                                     <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                             </div>
                             <% } %>
-                                <input type="text" name="lastName" placeholder="Apellido" class="form-control"
+                                <input type="text" name="lastName" placeholder="Apellido"
+                                    class="form-control <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
                                     value="<%= locals.oldData ? oldData.lastName : null %>">
 
                                 <% if (locals.errors && errors.email) { %>
@@ -41,7 +43,8 @@
                                                 style="font-size: 20px; margin-left: 5px;"></i>
                                     </div>
                                     <% } %>
-                                        <input type="email" name="email" placeholder="E-mail" class="form-control"
+                                        <input type="email" name="email" placeholder="E-mail"
+                                            class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                                             value="<%= locals.oldData ? oldData.email : null %>">
                                         <% if (locals.errors && errors.password) { %>
                                             <div class="formError">
@@ -51,7 +54,7 @@
                                             </div>
                                             <% } %>
                                                 <input type="password" name="password" placeholder="Contraseña"
-                                                    class="form-control">
+                                                    class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
                                                 <% if (locals.errors && errors.repassword) { %>
                                                     <div class="formError">
                                                         <%= errors.repassword.msg %>
@@ -60,7 +63,8 @@
                                                     </div>
                                                     <% } %>
                                                         <input type="password" name="repassword"
-                                                            placeholder="Confirmar Contraseña" class="form-control">
+                                                            placeholder="Confirmar Contraseña"
+                                                            class="form-control <%= locals.errors && errors.repassword ? 'is-invalid' : null %>">
                                                         <% if (locals.errors && errors.image) { %>
                                                             <div class="formError">
                                                                 <%= errors.image.msg %>

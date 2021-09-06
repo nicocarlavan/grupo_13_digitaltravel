@@ -9,6 +9,10 @@ const productsController = {
     index: (req, res) => {
         res.render('./products/products', { products: products });
     },
+    sale: (req, res) => {
+        let sale = products.filter(product => product.discount == 'true');
+        res.render('./products/products', { products: sale });
+    },
     detalle: (req, res) => {
         let product = products.find(element => element.id == req.params.id);
         res.render('./products/productDetail', { product: product })

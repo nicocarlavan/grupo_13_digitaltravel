@@ -4,15 +4,15 @@
   "firstName": "Nico",
   "lastName": "Fernandez",
   "email": "asd@asd.asd",
-  "password": "$2a$10$4zrX/AKZobOl8RGGaxBo4OGDXOK4nIsJs/67mRntzOhbfyQ1e5Hz2",
-  "image": "1630862488410.jpeg"
+  "password": "$2a$10$vlyVkSNgajbxdCG8AvXHS.IQ149IIMjg0VT8ywWb89soU202qD6M2",
+  "image": "1630940844858.jpeg"
  },
  {
   "id": 2,
-  "firstName": "asd",
-  "lastName": "DFFF",
-  "email": "asd@asd.as",
-  "password": "$2a$10$jZ09U9sEJZIZ7bIrl9wFE.OYw58T5aWdBCKXHbQHdDxdYk5lbJLyO",
-  "image": "1630863257095.jpeg"
+  "firstName": "Nico",
+  "lastName": "Fernandez",
+  "email": "nfernandez22@gmail.com",
+  "password": "$2a$10$rV3NiApcnGhiM2zrU2Sdpei1ghmtf8XHB.SP68b0oAkAeG5dpUx06",
+  "image": "1630941840051.jpeg"
  }
 ]

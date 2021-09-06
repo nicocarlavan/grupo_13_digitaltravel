@@ -1,57 +1,52 @@
-<nav class="navbar navbar-inverse">
-
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
     <div class="container-fluid">
+        <a href="/"><img src="/images/logoavion.png" alt="Logo Digital Travel" class="logo"></a>
+        <a class="navbar-brand title" href="/">Digital Travel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+            aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="title">
-            <!-- <a class="navbar-brand" href="/">Digital Travel</a> -->
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/products">Hoteles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/products/sale">Promociones</a>
+                </li>
 
-            <a href="/"><img src="/images/logoavion.png" alt="Logo Digital Travel" class="logo"></a>
-            <a href="/" class="title">Digital Travel</a>
+
+                <% if (locals.isLogged) { %>
+                    <li class="nav-item dropdown">
+                        <a class=" nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
+                            aria-expanded="false"><img src="/images/users/<%= locals.userLogged.image %> "
+                                alt="Imagen de usuario" class="rounded-circle" height="22" alt="" loading="lazy">
+                            <%= locals.userLogged.firstName %>
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                            <li><a class="dropdown-item" href="/products/cart">Carrito</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+
+                    <% }else{ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Registrate</a>
+                        </li>
+                        <% } %>
+
+
+            </ul>
+            <form>
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </form>
         </div>
 
-        <ul class="nav navbar-nav">
-
-            <li><a href="#"><i class="fas fa-plane"></i> New York</a></li>
-            <li><a href="#"><i class="fas fa-hotel"></i> Paris</a></li>
-            <li><a href="#"><i class="fas fa-hiking"></i> Buenos Aires</a></li>
-            <li><a href="#"><i class="fas fa-car"></i> Roma</a></li>
-            <li><a href="#"><i class="fas fa-clinic-medical"></i> Londres</a></li>
-            <li><a href="#"><i class="fas fa-clinic-medical"></i> Bangkok</a></li>
-            <li><a href="#"><i class="fas fa-clinic-medical"></i> Cancun</a></li>
-            <li><a href="#"><i class="fas fa-search-dollar"></i> Ofertas</a></li>
-            <% if (locals.isLogged) { %>
-                <li><a href="/profile"><img src="/images/users/<%= locals.userLogged.image %> " alt="Imagen de usuario"
-                            style="width: 4vw; border-radius: 100%;">
-                        <%= locals.userLogged.firstName %>
-                    </a>
-                </li>
-                <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i></a></li>
-                <li><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
-                <% }else{ %>
-                    <li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
-                    <li><a href="/register"><i class="fas fa-user-plus"></i></a></li>
-                    <% } %>
-
-
-        </ul>
     </div>
 </nav>
-<ul class="burger-menu">
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-bars burger"></i> <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="#"><i class="fas fa-plane"></i> New York</a></li>
-            <li><a href="#"><i class="fas fa-hotel"></i> Paris</a></li>
-            <li><a href="#"><i class="fas fa-hiking"></i> Buenos Aires</a></li>
-            <li><a href="#"><i class="fas fa-car"></i> Roma</a></li>
-            <li><a href="#"><i class="fas fa-clinic-medical"></i> Londres</a></li>
-            <li><a href="#"><i class="fas fa-clinic-medical"></i> Bangkok</a></li>
-            <li><a href="#"><i class="fas fa-clinic-medical"></i> Cancun</a></li>
-            <li><a href="#"><i class="fas fa-search-dollar"></i> Ofertas</a></li>
-            <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i></a></li>
-            <li><a href="/login"><i class="fas fa-sign-in-alt"></i></a></li>
-            <li><a href="/register"><i class="fas fa-user-plus"></i></i></a></li>
-        </ul>
-    </li>
-</ul>

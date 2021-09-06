@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const path = require('path');
 
 //Controller
 const usersController = require('../controllers/usersController');
@@ -28,3 +27,5 @@ router.post('/register', upload.single('image'), validations, usersController.ne
 router.get('/logout', usersController.logout);
 
 module.exports = router;
+
+
