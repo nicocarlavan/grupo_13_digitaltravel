@@ -6,15 +6,15 @@
         <title>Login - Digital Travel</title>
 </head>
 
-<body>
+<body style="background-color: #000000;">
 
-    <header>
-        <%- include ("../partials/header") %>
-    </header>
+
     <main>
-        <section>
-            <form action="/login" method="POST" class="form">
-                <h3>Login</h3>
+        <section class="loginSection">
+            <form action="/login" method="POST" class="form"
+                style="background-color: #ffffff; width: 100%; border-radius: 10vw;">
+                <a href="/"><img src="/images/logoavion.png" alt="Logo Digital Travel" class="logo"></a>
+                <h3>Digital Travel</h3>
                 <br>
                 <% if (locals.errors && errors.email) { %>
                     <div class="formError">
@@ -31,9 +31,7 @@
     </main>
 
 
-    <footer>
-        <%- include ("../partials/footer") %>
-    </footer>
+
 </body>
 
 </html>

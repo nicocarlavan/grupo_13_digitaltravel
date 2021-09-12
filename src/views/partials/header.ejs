@@ -26,9 +26,13 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
-                            <li><a class="dropdown-item" href="/products/cart">Carrito</a></li>
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <% if (locals.userLogged.role==9) { %>
+                                <li><a class="dropdown-item" href="/admin">Administrar</a></li>
+                                <% } %>
+
+                                    <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="/products/cart">Carrito</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
                     </li>
 

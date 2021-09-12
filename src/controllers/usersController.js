@@ -79,10 +79,8 @@ const usersController = {
             image: req.file.filename,
         };
 
-        let userToLoggin = User.create(newUser);
-        delete userToLoggin.password;
-        req.session.userLogged = userToLoggin;
-        return res.redirect('/profile');
+        User.create(newUser);
+        return res.redirect('/login');
 
     },
     logout: (req, res) => {
@@ -90,6 +88,14 @@ const usersController = {
         req.session.destroy();
         return res.redirect('/');
     },
+    admin: (req, res) => {
+        return res.render('./users/admin');
+    },
+    userRole: (req, res) => {
+        let fields = req.body;
+        User.role(fields);
+        return res.render('./users/admin');
+    }
 
 }
 
