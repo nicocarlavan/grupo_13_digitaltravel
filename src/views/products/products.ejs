@@ -50,12 +50,19 @@
                         </div>
                         <br>
                         <div>
-                            <form action="/products/delete/<%= products[i].id %>" method="POST">
-                                <button type="submit" class="button">Eliminar</button>
-                            </form>
-                            <form action="/products/edit/<%= products[i].id %>" method="GET">
-                                <button type="submit" class="button">Editar</button>
-                            </form>
+                            <% if (locals.isLogged && locals.userLogged.role==9) { %>
+                                <form action="/products/delete/<%= products[i].id %>" method="POST">
+                                    <button type="submit" class="button">Eliminar</button>
+                                </form>
+                                <form action="/products/edit/<%= products[i].id %>" method="GET">
+                                    <button type="submit" class="button">Editar</button>
+                                </form>
+                                <%}else{%>
+                                    <form action="/products/cart" method="GET">
+                                        <button type="submit" class="button">Agregar al carrito</button>
+                                    </form>
+
+                                    <%} %>
 
                         </div>
                     </section>

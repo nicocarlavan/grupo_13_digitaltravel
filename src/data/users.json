@@ -5,7 +5,8 @@
   "lastName": "Fernandez",
   "email": "asd@asd.asd",
   "password": "$2a$10$vlyVkSNgajbxdCG8AvXHS.IQ149IIMjg0VT8ywWb89soU202qD6M2",
-  "image": "1630940844858.jpeg"
+  "image": "1630940844858.jpeg",
+  "role": "1"
  },
  {
   "id": 2,
@@ -13,6 +14,16 @@
   "lastName": "Fernandez",
   "email": "nfernandez22@gmail.com",
   "password": "$2a$10$rV3NiApcnGhiM2zrU2Sdpei1ghmtf8XHB.SP68b0oAkAeG5dpUx06",
-  "image": "1630941840051.jpeg"
+  "image": "1630941840051.jpeg",
+  "role": 9
+ },
+ {
+  "id": 3,
+  "firstName": "Nico",
+  "lastName": "Fernandez",
+  "email": "aaaa@aa.aa",
+  "password": "$2a$10$8u4SLATfjSW8Ie50MUyJiu26QlmeiGu/EMj/PqXyqnQv3to3Kd.H6",
+  "image": "1631455696327.jpeg",
+  "role": 1
  }
 ]

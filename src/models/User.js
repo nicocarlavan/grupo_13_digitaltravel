@@ -15,6 +15,14 @@ const User = {
         return 1;
 
     },
+    roleUser: function () {
+        return 1;
+
+    },
+    roleAdmin: function () {
+        return 9;
+
+    },
     findAll: function () {
         return this.getData();
     },
@@ -36,7 +44,8 @@ const User = {
             lastName: userData.lastName,
             email: userData.email,
             password: userData.password,
-            image: userData.image
+            image: userData.image,
+            role: this.roleUser()
         }
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
@@ -47,7 +56,20 @@ const User = {
         let finalUsers = allUsers.filter(oneUser => oneUser.id !== id);
         fs.writeFileSync(this.fileName, JSON.stringify(finalUsers, null, ' '));
         return true;
+    },
+    role: function (fields) {
+
+        let allUsers = this.findAll();
+
+        for (let i = 0; i < allUsers.length; i++) {
+            if (allUsers[i].id == fields.userId) {
+                allUsers[i].role = fields.role;
+            }
+        }
+        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
+        return true;
     }
+
 }
 
 module.exports = User;

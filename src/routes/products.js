@@ -4,6 +4,7 @@ const path = require('path');
 const multer = require('multer');
 
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminAuthMiddleware = require('../middlewares/adminAuthMiddleware');
 
 
 
@@ -25,17 +26,17 @@ router.get('/', productsController.index);
 
 router.get('/sale', productsController.sale);
 
-router.get('/productDetail/:id', productsController.detalle);
+router.get('/detail/:id', productsController.detalle);
 
 router.get('/cart', authMiddleware, productsController.cart);
 
 router.post('/cart', productsController.cart);
 
-router.get('/edit/:id', authMiddleware, productsController.edit);
+router.get('/edit/:id', adminAuthMiddleware, productsController.edit);
 
 router.put('/edit/:id', productsController.update);
 
-router.get('/create/', authMiddleware, productsController.edit);
+router.get('/create/', adminAuthMiddleware, productsController.edit);
 
 router.post('/store', upload.single('image'), productsController.store);
 

@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body{
+background-color: black;
+}
+
 .logo{
     width: 8vw;
     padding: 15px;
@@ -19,12 +23,22 @@
 }
 main {
     margin: 0 auto;
-    background-color:rgba(241, 240, 238, 0.899);
+    background-color: #000000;
+
 }
 
 main section{
-    width: 50%;
+    width: 80%;
     margin: auto;
+}
+
+
+.loginSection{
+    margin-top: 20vh;
+}
+
+.registerSection{
+    margin-top: 5vh;
 }
 
 
@@ -134,18 +148,19 @@ color: red;
 
 
 .form input, .form button, .formcart button, .mainProductDetail, .button{
-    width: 150%;
+    width: 80%;
     min-width: 200px;
     border: none;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    background-color: rgb(250, 219, 191);
     
 }
 
 .form button, .formcart button, .button{
     color:rgb(46, 45, 45);
-    background-color:rgb(121, 205, 250)
+    background-color: rgb(250, 219, 191);
 }
 
 .button{
@@ -157,11 +172,15 @@ color: red;
     justify-content: space-between;
     flex-flow: column;
 
+
+
 }
 
 .products-list article{
-    display: flex;
-    padding: 20px;
+        padding: 20px;
+        background-color: #FFF;
+        margin: 15px;
+        margin-bottom: 0px;
 }
 
 .sale{
@@ -176,6 +195,7 @@ color: red;
 .loginForm{
     width: 50%;
 }
+
 
 footer section{
     display: flex;
@@ -219,6 +239,17 @@ footer section div p {
 
 
 @media (min-width: 769px) {
+    .homeMain{
+        display: flex;
+    }
+
+    .carousel{
+max-width: 80%;
+margin: auto;
+    }
+    .datesHome{
+    margin: auto;
+    }
 
     .title:hover{
     color: rgb(172, 117, 29);
@@ -228,7 +259,7 @@ footer section div p {
 
     .form button:hover, .formcart button:hover, form button:hover{
     color: #f0f9fe;
-    background-color:rgb(0, 166, 255);
+    background-color:rgb(152, 134, 90);
 
 }
     ul.burger-menu{
@@ -273,6 +304,20 @@ footer section div p {
     .links {
     padding-top: 100px;
     }
+
+
+    .form input, .form button, .formcart button, .mainProductDetail, .button{
+    width: 80%;
+    min-width: 200px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(250, 219, 191);
+    
+}
+.products-list article{
+    display: flex;}
 
 }
 

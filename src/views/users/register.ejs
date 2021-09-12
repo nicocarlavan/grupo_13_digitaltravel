@@ -6,14 +6,14 @@
         <title>Registrate - Digital Travel</title>
 </head>
 
-<body>
-    <header>
-        <%- include ("../partials/header") %>
-    </header>
+<body style="background-color: #000000;">
+
     <main>
-        <section>
-            <form action="/register" method="POST" enctype="multipart/form-data" class="form">
-                <h3>Registrate</h3>
+        <section class="registerSection">
+            <form action="/register" method="POST" enctype="multipart/form-data" class="form"
+                style="background-color: #ffffff; border-radius: 100px;">
+                <a href="/"><img src="/images/logoavion.png" alt="Logo Digital Travel" class="logo"></a>
+                <h3>Digital Travel</h3>
                 <br>
                 <% if (locals.errors && errors.firstName) { %>
                     <div class="formError">
@@ -79,10 +79,6 @@
             </form>
         </section>
     </main>
-    <footer>
-        <%- include ("../partials/footer") %>
-
-    </footer>
 
 </body>
 

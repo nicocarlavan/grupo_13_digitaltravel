@@ -15,7 +15,7 @@ const productsController = {
     },
     detalle: (req, res) => {
         let product = products.find(element => element.id == req.params.id);
-        res.render('./products/productDetail', { product: product })
+        res.render('./products/detail', { product: product })
 
     },
     cart: (req, res) => {
@@ -53,7 +53,7 @@ const productsController = {
 
         })
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect('/products/productDetail/' + req.params.id)
+        res.redirect('/products/detail/' + req.params.id)
     },
 
     store: (req, res) => {
@@ -70,7 +70,7 @@ const productsController = {
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect('/products/productdetail/' + newProduct.id);
+        res.redirect('/products/detail/' + newProduct.id);
     },
 
     destroy: (req, res) => {

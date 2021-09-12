@@ -10,6 +10,7 @@ const upload = require('../middlewares/multerMiddleware');
 const validations = require('../middlewares/validationMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminAuthMiddleware = require('../middlewares/adminAuthMiddleware');
 
 
 
@@ -23,6 +24,10 @@ router.get('/profile', authMiddleware, usersController.profile);
 router.get('/register', guestMiddleware, usersController.registro);
 
 router.post('/register', upload.single('image'), validations, usersController.newUser);
+
+router.get('/admin', adminAuthMiddleware, usersController.admin);
+
+router.post('/admin', adminAuthMiddleware, usersController.userRole);
 
 router.get('/logout', usersController.logout);
 
