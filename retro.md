@@ -60,6 +60,14 @@
 #### Deberíamos dejar de hacer:
 -Que algunos trabajen más que otros. 
 
+#### Sprint 5:
+#### Mal:
+-En este sprint hubo una muy mala distribución de las tareas. 
+#### Bien: 
+-Entregamos en tiempo y forma. 
+-No nos juntamos tanto a ver lo que estaba haciendo cada uno. 
+#### Deberíamos dejar de hacer:
+-Organizarnos mal.
 
 #### _Integrantes_:
 
