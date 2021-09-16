@@ -48,6 +48,27 @@
 ##### Deberiamos dejar de hacer:
 - Dejar pasar el tiempo sin empezar el trabajo. 
 
+
+#### Sprint 4: 
+#### Mal: 
+-El trabajo no fue equitativo. Por un tema de no tan buena organización algunos integrantes aportaron más que otros. 
+#### Bien: 
+-Pudimos entregar en tiempo y forma. 
+-No lo dejamos para último momento como veníamos haciendo hasta entonces. 
+#### Deberíamos empezar a hacer: 
+-Dividir bien las tareas. 
+#### Deberíamos dejar de hacer:
+-Que algunos trabajen más que otros. 
+
+#### Sprint 5:
+#### Mal:
+-En este sprint hubo una muy mala distribución de las tareas. 
+#### Bien: 
+-Entregamos en tiempo y forma. 
+-No nos juntamos tanto a ver lo que estaba haciendo cada uno. 
+#### Deberíamos dejar de hacer:
+-Organizarnos mal.
+
 #### _Integrantes_:
 
 `Nicolás Fernández Carlavan`
