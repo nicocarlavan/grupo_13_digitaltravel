@@ -32,5 +32,3 @@ router.post('/admin', adminAuthMiddleware, usersController.userRole);
 router.get('/logout', usersController.logout);
 
 module.exports = router;
-
-

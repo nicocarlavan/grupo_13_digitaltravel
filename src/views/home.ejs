@@ -11,21 +11,16 @@
         <%- include ("./partials/header") %>
     </header>
     <main class="homeMain">
-
-        <div class="datesHome">
-            <form action="/" method="POST" class="form">
-                <input type="text" name="destino" required placeholder="¿A donde quiere ir?">
+        <div>
+            <form action="/" method="POST" class="formHome">
+                <input type="text" name="destino" required placeholder="¿A donde quiere ir?"
+                    style="text-align: center;">
                 <br>
-                <label for="date">Fecha de entrada</label>
-                <input type="date" name="date" required>
-                <br>
-                <label for="date">Fecha de salida</label>
-                <input type="date" name="date" required>
                 <button type="submit">Buscar</button>
             </form>
         </div>
-        <div class="carousel">
 
+        <div class="carousel">
             <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
                 style="padding-right: 100px; padding-left: 100px;">
                 <div class="carousel-indicators">
@@ -47,13 +42,13 @@
                             <div class="carousel-item active" data-bs-interval="2000">
                                 <a href="/products/detail/<%= discountProducts[i].id %>"><img
                                         src="/images/products/<%= discountProducts[i].image %>"
-                                        alt="<%= discountProducts[i].name %>" style="width:60%;" class="d-block w-100">
+                                        alt="<%= discountProducts[i].name %>" class="d-block w-100">
                                 </a>
                                 <div class="carousel-caption d-none d-md-block"
-                                    style="color:rgb(179, 42, 42); background-color: rgba(255, 255, 255, 0.783);">
-                                    <h3>
+                                    style=" color:rgb(179, 42, 42); background-color: rgba(255, 255, 255, 0.783);">
+                                    <p style="font-weight: bold;">
                                         <%= discountProducts[i].name %>
-                                    </h3>
+                                    </p>
                                 </div>
                             </div>
 
@@ -61,13 +56,12 @@
                                 <div class="carousel-item">
                                     <a href="/products/detail/<%= discountProducts[i].id %>"><img
                                             src="/images/products/<%= discountProducts[i].image %>"
-                                            alt="<%= discountProducts[i].name %>" style="width:100%;"
-                                            class="d-block w-100"></a>
-                                    <div class="carousel-caption d-none d-md-block"
+                                            alt="<%= discountProducts[i].name %>" class="d-block w-100"></a>
+                                    <div class="carousel-caption d-none d-md-block "
                                         style="color:rgb(179, 42, 42); background-color: rgba(255, 255, 255, 0.783);">
-                                        <h3>
+                                        <p style="font-weight: bold;">
                                             <%= discountProducts[i].name %>
-                                        </h3>
+                                        </p>
                                     </div>
                                 </div>
                                 <% } %>

@@ -1,9 +1,11 @@
 * {
     box-sizing: border-box;
+    
 }
 
 body{
 background-color: black;
+
 }
 
 .logo{
@@ -146,8 +148,19 @@ color: red;
     padding: 60px;
 }
 
+.formHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto';
+    padding: 80px;
 
-.form input, .form button, .formcart button, .mainProductDetail, .button{
+}
+
+
+
+
+.form input, .formHome input, .form button, .formHome button, .formcart button, .mainProductDetail, .button{
     width: 80%;
     min-width: 200px;
     border: none;
@@ -158,7 +171,7 @@ color: red;
     
 }
 
-.form button, .formcart button, .button{
+.form button,.formHome button, .formcart button, .button{
     color:rgb(46, 45, 45);
     background-color: rgb(250, 219, 191);
 }
@@ -171,8 +184,6 @@ color: red;
     display: flex;
     justify-content: space-between;
     flex-flow: column;
-
-
 
 }
 
@@ -196,6 +207,9 @@ color: red;
     width: 50%;
 }
 
+footer{
+    margin-bottom: 0px;
+}
 
 footer section{
     display: flex;
@@ -241,15 +255,28 @@ footer section div p {
 @media (min-width: 769px) {
     .homeMain{
         display: flex;
+        padding: 100px;
+
     }
 
+    .formHome {
+    padding: 20px;
+width: 50vw;
+
+}
+
     .carousel{
-max-width: 80%;
 margin: auto;
     }
     .datesHome{
-    margin: auto;
+
     }
+
+    .nameHome {
+width: 40%;
+height: 40%;
+
+}
 
     .title:hover{
     color: rgb(172, 117, 29);
@@ -257,7 +284,7 @@ margin: auto;
 
 }
 
-    .form button:hover, .formcart button:hover, form button:hover{
+    .form button:hover, .formHome button:hover, .formcart button:hover, form button:hover{
     color: #f0f9fe;
     background-color:rgb(152, 134, 90);
 
