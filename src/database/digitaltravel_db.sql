@@ -153,7 +153,7 @@ CREATE TABLE `roomTypes`
 `type` char(3) NOT NULL,
   PRIMARY KEY
 (`id`),
-  
+);
 
 CREATE TABLE `roomCategories`
 (
@@ -161,7 +161,7 @@ CREATE TABLE `roomCategories`
 `category` varchar(10) NOT NULL,
   PRIMARY KEY
 (`id`),
-
+);
 
 
 CREATE TABLE `carts`
