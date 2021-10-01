@@ -117,6 +117,135 @@ CREATE TABLE `hotelImages`
 );
 
 
+
+
+
+CREATE TABLE `products`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`hotel_id` int,
+`roomType_id` int,
+`roomCategory_id` int, 
+`price` int, 
+`discount` varchar(5) NOT NULL,
+`created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY
+(`id`),
+  KEY `products_hotel_id_foreign`
+(`hotel_id`),
+  KEY `products_id_foreign`
+(`id`),
+  KEY `products_roomType_id_foreign`
+(`roomType_id`),
+  KEY `products_roomCategory_id_foreign`
+(`roomCategory`),
+  CONSTRAINT `products_hotel_id_foreign` FOREIGN KEY
+(`hotel_id`) REFERENCES `hotels`
+(`id`),
+  CONSTRAINT `products_id_foreign` FOREIGN KEY 
+  (`id`) REFERENCES `carts` (`product_id`),
+  CONSTRAINT `products_roomType_id_foreign` FOREIGN KEY 
+  (`roomType_id`) REFERENCES `roomTypes` (`id`),
+  CONSTRAINT `products_roomCategory_id_foreign` FOREIGN KEY
+  (`roomCategory_id`) REFERENCES `roomCategories` (`id`)
+);
+
+
+CREATE TABLE `roomTypes`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`type` char(3) NOT NULL,
+  PRIMARY KEY
+(`id`),
+  KEY `roomTypes_id_foreign`
+(`id`),
+  CONSTRAINT `roomTypes_id_foreign` FOREIGN KEY
+(`id`) REFERENCES `products`
+(`roomType_id`)
+);
+
+CREATE TABLE `roomCategories`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`category` varchar(10) NOT NULL,
+  PRIMARY KEY
+(`id`),
+  KEY `roomCategories_id_foreign`
+(`id`),
+  CONSTRAINT `roomCategories_id_foreign` FOREIGN KEY
+(`id`) REFERENCES `products`
+(`roomCategory_id`)
+);
+
+
+CREATE TABLE `carts`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`product_id` int,
+`created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY
+(`id`),
+  KEY `carts_id_foreign`
+(`id`),
+  CONSTRAINT `carts_id_foreign` FOREIGN KEY
+(`id`) REFERENCES `sales`
+(`cart_id`)
+);
+
+CREATE TABLE `sales`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`user_id` int,
+`cart_id` int,
+`quantity` int,
+`totalPrice` int,
+`created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+`updated_at` DATETIME ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY
+(`id`),
+  KEY `sales_user_id_foreign`
+(`user_id`),
+  CONSTRAINT `sales_user_id_foreign` FOREIGN KEY
+(`user_id`) REFERENCES `users`
+(`id`)
+);
+
+CREATE TABLE `users`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`firstName` varchar(30) NOT NULL,
+`lastName` varchar(50) NOT NULL,
+`email` varchar(50) NOT NULL UNIQUE,
+`password` varchar(150) NOT NULL,
+`image` varchar(100) NOT NULL,
+`role_id` int,
+`created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY
+(`id`),
+  KEY `users_role_id_foreign`
+(`role_id`),
+  CONSTRAINT `usersrole_role_id_foreign` FOREIGN KEY
+(`role_id`) REFERENCES `roles`
+(`id`)
+);
+
+
+
+CREATE TABLE `roles`
+(
+  `id` int NOT NULL AUTO_INCREMENT,
+`role` varchar(20) NOT NULL,
+  PRIMARY KEY
+(`id`),
+  KEY `roles_id_foreign`
+(`id`),
+  CONSTRAINT `roles_id_foreign` FOREIGN KEY
+(`id`) REFERENCES `users`
+(`role_id`)
+);
+
+
+
 --LOCK TABLES `hotelImages` WRITE;
 --INSERT INTO `hotelImages` (
 --description)
@@ -125,8 +254,6 @@ CREATE TABLE `hotelImages`
 --  ('Modificada'),
 --  ('Eliminada');
 --UNLOCK TABLES;
-
-
 
 
 
