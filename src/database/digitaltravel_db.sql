@@ -133,8 +133,6 @@ CREATE TABLE `products`
 (`id`),
   KEY `products_hotel_id_foreign`
 (`hotel_id`),
-  KEY `products_id_foreign`
-(`id`),
   KEY `products_roomType_id_foreign`
 (`roomType_id`),
   KEY `products_roomCategory_id_foreign`
@@ -142,8 +140,6 @@ CREATE TABLE `products`
   CONSTRAINT `products_hotel_id_foreign` FOREIGN KEY
 (`hotel_id`) REFERENCES `hotels`
 (`id`),
-  CONSTRAINT `products_id_foreign` FOREIGN KEY 
-  (`id`) REFERENCES `carts` (`product_id`),
   CONSTRAINT `products_roomType_id_foreign` FOREIGN KEY 
   (`roomType_id`) REFERENCES `roomTypes` (`id`),
   CONSTRAINT `products_roomCategory_id_foreign` FOREIGN KEY
