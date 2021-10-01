@@ -157,12 +157,7 @@ CREATE TABLE `roomTypes`
 `type` char(3) NOT NULL,
   PRIMARY KEY
 (`id`),
-  KEY `roomTypes_id_foreign`
-(`id`),
-  CONSTRAINT `roomTypes_id_foreign` FOREIGN KEY
-(`id`) REFERENCES `products`
-(`roomType_id`)
-);
+  
 
 CREATE TABLE `roomCategories`
 (
@@ -170,12 +165,7 @@ CREATE TABLE `roomCategories`
 `category` varchar(10) NOT NULL,
   PRIMARY KEY
 (`id`),
-  KEY `roomCategories_id_foreign`
-(`id`),
-  CONSTRAINT `roomCategories_id_foreign` FOREIGN KEY
-(`id`) REFERENCES `products`
-(`roomCategory_id`)
-);
+
 
 
 CREATE TABLE `carts`
