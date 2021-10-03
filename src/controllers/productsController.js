@@ -3,15 +3,25 @@ const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+const db = require('../database/models');
 
 const productsController = {
     index: (req, res) => {
-        res.render('./products/products', { products: products });
+        db.Hotel.findAll()
+            .then(data => {
+                res.render('./products/products', { products: data });
+            })
+        //res.render('./products/products', { products: products });
     },
     sale: (req, res) => {
-        let sale = products.filter(product => product.discount == 'true');
-        res.render('./products/products', { products: sale });
+        db.Product.findAll()
+            .then(data => {
+                let sale = data.filter(product => product.discountRate !== 0);
+                res.render('./products/products', { products: sale });
+            })
+
+        //let sale = products.filter(product => product.discount == 'true');
+        //res.render('./products/products', { products: sale });
     },
     detalle: (req, res) => {
         let product = products.find(element => element.id == req.params.id);

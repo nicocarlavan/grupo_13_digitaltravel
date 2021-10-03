@@ -5,6 +5,7 @@ const { validationResult } = require('express-validator');
 const User = require('../models/User');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const db = require('../database/models');
 
 
 const usersController = {
@@ -95,6 +96,14 @@ const usersController = {
         let fields = req.body;
         User.role(fields);
         return res.render('./users/admin');
+    },
+
+    //prueba db
+    userAdmin: (req, res) => {
+        db.User.findAll()
+            .then(data => {
+                res.send(data);
+            })
     }
 
 }

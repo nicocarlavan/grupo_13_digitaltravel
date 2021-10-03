@@ -29,6 +29,10 @@ router.get('/admin', adminAuthMiddleware, usersController.admin);
 
 router.post('/admin', adminAuthMiddleware, usersController.userRole);
 
+//prueba db
+router.get('/admin/users', adminAuthMiddleware, usersController.userAdmin);
+
 router.get('/logout', usersController.logout);
+
 
 module.exports = router;

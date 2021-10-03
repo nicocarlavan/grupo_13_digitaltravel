@@ -24,7 +24,7 @@
                         <div>
                             <h2>
                                 <%= products[i].name %>
-                                    <% if (products[i].discount=="true" ) {%>
+                                    <% if (products[i].discountRate!==0 ) {%>
                                         <img src="/images/sale.png" class="sale" alt="Foto">
                                         <% }%>
                             </h2>
