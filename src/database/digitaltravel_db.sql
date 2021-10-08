@@ -35,6 +35,7 @@ CREATE TABLE `hotels`
   `description` varchar(500) NOT NULL,
   `hotelCategory_id` int,
   `city_id` int,
+  `image` VARCHAR(200) NOT NULL,
   PRIMARY KEY(`id`),
   KEY `hotels_hotelCategory_id_foreign` (`hotelCategory_id`),
   KEY `hotels_city_id_foreign` (`city_id`),
@@ -43,20 +44,6 @@ CREATE TABLE `hotels`
   CONSTRAINT `hotels_city_id_foreign` 
   FOREIGN KEY(`city_id`) REFERENCES `cities`(`id`)
 );
-
-
-
-CREATE TABLE `hotelImages`
-(
- `id` int NOT NULL AUTO_INCREMENT,
- `image` varchar(100) NOT NULL,
- `hotel_id` int,
-  PRIMARY KEY(`id`),
-  KEY `hotelImages_hotel_id_foreign`(`hotel_id`),
-  CONSTRAINT `hotelImages_hotel_id_foreign` 
-  FOREIGN KEY(`hotel_id`) REFERENCES `hotels`(`id`)
-);
-
 
 
 
@@ -100,20 +87,6 @@ CREATE TABLE `products`
 
 
 
-CREATE TABLE `carts`
-(
-`id` int NOT NULL AUTO_INCREMENT,
-`product_id` int,
-`inDate` DATETIME NOT NULL,
-`outDate` DATETIME NOT NULL,
-`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY(`id`),
-  KEY `carts_product_id_foreign`(`product_id`),
-  CONSTRAINT `carts_product_id_foreign` 
-  FOREIGN KEY(`product_id`) REFERENCES `products`(`id`)
-);
-
-
 CREATE TABLE `roles`
 (
  `id` int NOT NULL AUTO_INCREMENT,
@@ -138,21 +111,33 @@ CREATE TABLE `users`
 );
 
 
-
-CREATE TABLE `sales`
+CREATE TABLE `carts`
 (
 `id` int NOT NULL AUTO_INCREMENT,
 `user_id` int,
-`cart_id` int UNIQUE,
-`paid` int not NULL DEFAULT 0,
+`paid` int NOT NULL DEFAULT 0,
 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 `updated_at` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY(`id`),
+ KEY `carts_user_id_foreign`(`user_id`),
+ CONSTRAINT `carts_user_id_foreign` 
+ FOREIGN KEY(`user_id`) REFERENCES `users`(`id`)
+);
+
+CREATE TABLE `cartItems`
+(
+`id` int NOT NULL AUTO_INCREMENT,
+`product_id` int,
+`cart_id` int,
+`inDate` DATE,
+`outDate` DATE,
+`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY(`id`),
- KEY `sales_user_id_foreign`(`user_id`),
- KEY `sales_cart_id_foreign`(`cart_id`),
- CONSTRAINT `sales_user_id_foreign` 
- FOREIGN KEY(`user_id`) REFERENCES `users`(`id`),
- CONSTRAINT `sales_cart_id_foreign` 
+ KEY `cartItems_product_id_foreign`(`product_id`),
+ KEY `cartItems_cart_id_foreign`(`cart_id`),
+ CONSTRAINT `cartItems_product_id_foreign` 
+ FOREIGN KEY(`product_id`) REFERENCES `products`(`id`),
+ CONSTRAINT `cartItems_cart_id_foreign` 
  FOREIGN KEY(`cart_id`) REFERENCES `carts`(`id`)
 );
 
@@ -188,33 +173,15 @@ INSERT INTO `hotels` (
 name,
 description,
 hotelCategory_id,
-city_id
+city_id,
+image
 )
 VALUES
-('Hilton New York', 'Descripcion Prueba 123', 5, 1),
-('Four Seasons Buenos Aires', 'Descripcion Prueba 123', 5, 2),
-('Riu Miami', 'Descripcion Prueba 123', 5, 4),
-('Riu Paris', 'Descripcion Prueba 123', 5, 5),
-('Sheraton Londres', 'Descripcion Prueba 123', 5, 3);
-UNLOCK TABLES;
-
-
-LOCK TABLES `hotelImages` WRITE;
-INSERT INTO `hotelImages` (
-image,
-hotel_id
-)
-VALUES
-('img-faenabue', 1),
-('img-fourseasonslon', 2),
-('img-holidayinnmia', 3),
-('img-mandarinkul', 4),
-('img-sofiteldxb', 5),
-('img-faenabue', 1),
-('img-fourseasonslon', 2),
-('img-holidayinnmia', 3),
-('img-mandarinkul', 4),
-('img-sofiteldxb', 5);
+('Hilton New York', 'Descripcion Prueba 123', 5, 1, 'img-faenabue.jpg'),
+('Four Seasons Buenos Aires', 'Descripcion Prueba 123', 5, 2,'img-fourseasonslon.jpg'),
+('Riu Miami', 'Descripcion Prueba 123', 5, 4,'img-holidayinnmia.jpg'),
+('Riu Paris', 'Descripcion Prueba 123', 5, 5,'img-mandarinkul.jpg'),
+('Sheraton Londres', 'Descripcion Prueba 123', 5, 3,'img-sofiteldxb.jpg');
 UNLOCK TABLES;
 
 
@@ -257,22 +224,6 @@ VALUES
 (5, 4, 3, 370, 5);
 UNLOCK TABLES;
 
-LOCK TABLES `carts` WRITE;
-INSERT INTO `carts` (
-product_id,
-inDate,
-outDate
-)
-VALUES
-(1, '2022-01-12', '2022-02-21'),
-(2, '2021-10-21', '2021-10-24'),
-(2, '2021-10-10', '2021-10-21'),
-(3, '2021-11-21', '2021-11-29'),
-(3, '2021-12-01', '2021-12-16'),
-(4, '2021-12-21', '2021-12-24'),
-(2, '2022-02-02', '2022-02-08'),
-(1, '2021-10-29', '2021-11-04');
-UNLOCK TABLES;
 
 LOCK TABLES `roles` WRITE;
 INSERT INTO `roles` (
@@ -294,22 +245,37 @@ image,
 role_id
 )
 VALUES
-('Nicolas', 'Fernandez Carlavan', 'nfernandez22@gmail.com', '1', '1630941840051', 2),
-('Nicolas', 'Fernandez Carlavan', 'asd@asd.asd', '1', '1630940844858', 1);
+('Nicolas', 'Fernandez Carlavan', 'nfernandez22@gmail.com', "$2a$10$vlyVkSNgajbxdCG8AvXHS.IQ149IIMjg0VT8ywWb89soU202qD6M2", '1630941840051.jpeg', 2),
+('Nicolas', 'Fernandez Carlavan', 'asd@asd.asd', "$2a$10$vlyVkSNgajbxdCG8AvXHS.IQ149IIMjg0VT8ywWb89soU202qD6M2", '1630940844858.jpeg', 1);
 UNLOCK TABLES;
 
-LOCK TABLE `sales` WRITE;
-INSERT INTO `sales` (
+
+LOCK TABLES `carts` WRITE;
+INSERT INTO `carts` (
 user_id,
-cart_id
+paid
 )
 VALUES
 (1, 1),
-(2, 2),
-(1, 3),
-(2, 4),
-(1, 5),
-(2, 6),
-(2, 7),
-(2, 8);
+(2, 0),
+(1, 1),
+(2, 0);
+UNLOCK TABLES;
+
+
+LOCK TABLES `cartItems` WRITE;
+INSERT INTO `cartItems` (
+product_id,
+cart_id,
+inDate,
+outDate
+)
+VALUES
+(1, 1, '2022-01-12', '2022-02-21'),
+(2, 1, '2021-10-21', '2021-10-24'),
+(3, 2, '2021-10-10', '2021-10-21'),
+(1, 2, '2021-11-21', '2021-11-29'),
+(2, 3, '2021-12-01', '2021-12-16'),
+(1, 3, '2021-12-21', '2021-12-24'),
+(4, 4, '2022-02-02', '2022-02-08');
 UNLOCK TABLES;

@@ -15,14 +15,14 @@
         <div class="products-list">
             <article>
                 <section>
-                    <img class="imagenofertainicio" src="/images/products/<%= product.image %>" alt="Foto">
+                    <img class="imagenofertainicio" src="/images/products/<%= product.hotel.image %>" alt="Foto">
 
                 </section>
 
                 <section>
                     <div>
                         <h2>
-                            <%= product.name %>
+                            <%= product.hotel.name %>
                                 <% if (product.discount=="true" ) {%>
                                     <img src="/images/sale.png" class="sale" alt="Foto">
                                     <% }%>
@@ -33,15 +33,19 @@
                     </div>
                     <br>
                     <div>
-                        Tipo de habitación: <%= product.room %>
+                        Tipo de habitación: <%= product.roomType.type %>
                     </div>
                     <br>
                     <div>
-                        Categoría de Hotel: <%= product.category %>
+                        Categoria de habitación: <%= product.roomCategory.category %>
                     </div>
                     <br>
                     <div>
-                        Ciudad: <%= product.city %>
+                        Categoría de Hotel: <%= product.hotel.hotelCategory_id %>
+                    </div>
+                    <br>
+                    <div>
+                        Ciudad: <%= city.city %>
                     </div>
                     <br>
                     <div>Tarifa por noche: USD <%= product.price %>

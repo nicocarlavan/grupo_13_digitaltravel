@@ -160,7 +160,7 @@ color: red;
 
 
 
-.form input, .formHome input, .form button, .formHome button, .formcart button, .mainProductDetail, .button{
+.form input, .form select, .formHome input, .form button, .formHome button, .formcart button, .mainProductDetail, .button{
     width: 80%;
     min-width: 200px;
     border: none;

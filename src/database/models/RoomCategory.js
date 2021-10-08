@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     let cols = {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         category: {
             type: DataTypes.STRING
@@ -17,6 +18,13 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const RoomCategory = sequelize.define("RoomCategory", cols, config);
+
+    RoomCategory.associate = function (models) {
+        RoomCategory.hasMany(models.Product, {
+            as: "products",
+            foreignKey: "roomCategory_id"
+        });
+    }
 
     return RoomCategory;
 };

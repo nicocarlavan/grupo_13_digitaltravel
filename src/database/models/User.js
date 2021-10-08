@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     let cols = {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         firstName: {
             type: DataTypes.STRING
@@ -35,6 +36,20 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const User = sequelize.define("User", cols, config);
+
+    User.associate = function (models) {
+
+        User.belongsTo(models.Role, {
+            as: "roles",
+            foreignKey: "role_id"
+        });
+
+        User.hasMany(models.Cart, {
+            as: "carts",
+            foreignKey: "user_id"
+        });
+    }
+
 
     return User;
 };

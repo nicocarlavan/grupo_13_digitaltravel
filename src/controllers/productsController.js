@@ -1,32 +1,49 @@
 const fs = require('fs');
 const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const { REPL_MODE_SLOPPY } = require('repl');
 const db = require('../database/models');
+
+//const productsFilePath = path.join(__dirname, '../data/products.json');
+//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 const productsController = {
     index: (req, res) => {
-        db.Hotel.findAll()
-            .then(data => {
-                res.render('./products/products', { products: data });
+
+        db.Product.findAll({
+            include: [{ model: db.Hotel, as: 'hotel', include: ['cities', 'hotelCategories'] }, 'roomType', 'roomCategory']
+
+        })
+            .then(products => {
+                res.render('./products/products', { products: products });
             })
-        //res.render('./products/products', { products: products });
+
     },
     sale: (req, res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            include: [{ model: db.Hotel, as: 'hotel', include: ['cities', 'hotelCategories'] }, 'roomType', 'roomCategory']
+
+        })
             .then(data => {
                 let sale = data.filter(product => product.discountRate !== 0);
                 res.render('./products/products', { products: sale });
             })
 
-        //let sale = products.filter(product => product.discount == 'true');
-        //res.render('./products/products', { products: sale });
     },
     detalle: (req, res) => {
-        let product = products.find(element => element.id == req.params.id);
-        res.render('./products/detail', { product: product })
+        db.Product.findByPk(req.params.id, {
+            include: ['hotel', 'roomType', 'roomCategory']
+        })
+            .then(product => {
+                db.City.findByPk(product.hotel.city_id)
+                    .then(city => {
 
+                        res.render('./products/detail', { product: product, city: city })
+
+                    })
+
+
+            });
     },
     cart: (req, res) => {
         res.render('./products/cart')
@@ -34,58 +51,61 @@ const productsController = {
     },
 
     edit: (req, res) => {
-        let product = {
-            id: '',
-            name: '',
-            price: '',
-            room: '',
-            category: '',
-            city: '',
-            description: '',
-            image: '',
-            discount: '',
-        };
-        let productToEdit = products.find(element => element.id == req.params.id);
-        res.render('./products/edit', { 'productToEdit': productToEdit })
+
+        db.Product.findAll({
+            include: ['hotel', 'roomType', 'roomCategory']
+
+        })
+            .then(products => {
+                db.RoomType.findAll()
+                    .then(roomTypes => {
+                        db.RoomCategory.findAll()
+                            .then(roomCategories => {
+
+                                if (req.params.id != undefined) {
+
+                                    for (let i = 0; i < products.length; i++) {
+                                        if (products[i].id == req.params.id) {
+                                            db.Hotel.findByPk(products[i].hotel_id)
+                                                .then(hotel => (
+                                                    res.render('./products/edit', { product: products[i], hotels: hotel, types: roomTypes, categories: roomCategories })));
+                                        }
+                                    }
+
+                                } else {
+                                    db.Hotel.findAll()
+                                        .then(hotel => (
+                                            res.render('./products/edit', { product: undefined, hotels: hotel, types: roomTypes, categories: roomCategories })))
+                                }
+                            })
+                    })
+            })
     },
 
     update: (req, res) => {
-        products.forEach(element => {
-            if (element.id == req.params.id) {//
-                element.name = req.body.name
-                element.price = req.body.price
-                element.room = req.body.room
-                element.category = req.body.category
-                element.city = req.body.city
-                element.description = req.body.description
-                element.discount = req.body.discount
-            }
 
-        })
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect('/products/detail/' + req.params.id)
+        db.Product.update(
+            req.body,
+            {
+                where: { id: req.params.id }
+            })
+            .then(() => {
+                res.redirect('/products/detail/' + req.params.id)
+            })
     },
 
     store: (req, res) => {
-        let newProduct = {
-            id: products[products.length - 1].id + 1,
-            name: req.body.name,
-            price: req.body.price,
-            room: req.body.room,
-            category: req.body.category,
-            city: req.body.city,
-            description: req.body.description,
-            image: req.file.filename,
-            discount: req.body.discount,
-        };
-        products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect('/products/detail/' + newProduct.id);
+        db.Product.create(
+            req.body
+        )
+            .then(res.redirect('/products/')
+            );
     },
 
     destroy: (req, res) => {
-        products = products.filter(element => element.id != req.params.id)
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        db.Product.destroy({
+            where: { id: req.params.id }
+        });
         res.redirect('/products');
     }
 

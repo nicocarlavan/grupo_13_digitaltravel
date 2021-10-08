@@ -1,10 +1,15 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
 
 const User = {
-    fileName: path.join(__dirname, '../data/users.json'),
+    //fileName: path.join(__dirname, '../data/users.json'),
     getData: function () {
-        return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));
+        //return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));
+        db.User.findAll()
+            .then(users => {
+                return users;
+            })
     },
     generateId: function () {
         let allUsers = this.findAll();
@@ -20,36 +25,58 @@ const User = {
 
     },
     roleAdmin: function () {
-        return 9;
+        return 2;
 
     },
     findAll: function () {
         return this.getData();
     },
     findByPk: function (id) {
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser.id === id);
-        return userFound;
+
+        //let allUsers = this.findAll();
+        //let userFound = allUsers.find(oneUser => oneUser.id === id);
+        //return userFound;
+
+        db.User.findAll()
+            .then(allUsers => {
+                let userFound = allUsers.find(oneUser => oneUser.id === id);
+                return userFound;
+            })
     },
-    findByField: function (field, text) {
-        let allUsers = this.findAll();
-        let userFound = allUsers.find(oneUser => oneUser[field] === text);
-        return userFound;
-    },
+    /*findByField: function (field, text) {
+        //let allUsers = this.findAll();
+        //let userFound = allUsers.find(oneUser => oneUser[field] === text);
+        //return userFound;
+        //console.log('respuesta');
+        //console.log(field);
+        //console.log(data);
+        db.User.findAll()
+            .then(allUsers => {
+                let userFound = allUsers.find(oneUser => oneUser[field] === text);
+                return userFound;
+            })
+
+    },*/
     create: function (userData) {
-        let allUsers = this.findAll();
+        //let allUsers = this.findAll();
         let newUser = {
-            id: this.generateId(),
             firstName: userData.firstName,
             lastName: userData.lastName,
             email: userData.email,
             password: userData.password,
             image: userData.image,
-            role: this.roleUser()
+            role_id: this.roleUser()
         }
-        allUsers.push(newUser);
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
-        return newUser;
+
+        db.User.create(
+            newUser
+        )
+            .then(result => { return newUser }
+            );
+
+        //allUsers.push(newUser);
+        //fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
+        //return newUser;
     },
     delete: function (id) {
         let allUsers = this.findAll();

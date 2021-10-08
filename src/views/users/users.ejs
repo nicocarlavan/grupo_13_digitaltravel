@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ("../partials/head") %>
+        <title>Listado de Productos</title>
+</head>
+
+<header>
+    <%- include ("../partials/header") %>
+</header>
+<main>
+
+    <body>
+        <div class="products-list">
+            <% for( let i=0; i < products.length; i++ ) { %>
+                <article>
+                    <section>
+                        <img class="imagenofertainicio" src="/images/users/<%= products[i].hotel.image %>" alt="Foto">
+
+                    </section>
+
+                    <section>
+                        <div>
+                            <h2>
+                                <%= products[i].hotel.name %>
+                                    <% if (products[i].discountRate!==0 ) {%>
+                                        <img src="/images/sale.png" class="sale" alt="Foto">
+                                        <% }%>
+                            </h2>
+                        </div>
+                        <div>
+                            <%= products[i].hotel.description %>
+                        </div>
+                        <br>
+                        <div>
+                            Tipo de habitación: <%= products[i].roomType.type %>
+                        </div>
+                        <br>
+                        <div>
+                            Categoría de Hotel: <%= products[i].roomCategory.category %>
+                        </div>
+                        <br>
+                        <div>
+                            Ciudad: <%= products[i].hotel.cities.city %>
+                        </div>
+                        <br>
+                        <div>Tarifa por noche: USD <%= products[i].price %>
+
+                        </div>
+                        <br>
+                        <div>
+                            <% if (locals.isLogged && locals.userLogged.role==9) { %>
+                                <form action="/products/delete/<%= products[i].id %>" method="POST">
+                                    <button type="submit" class="button">Eliminar</button>
+                                </form>
+                                <form action="/products/edit/<%= products[i].id %>" method="GET">
+                                    <button type="submit" class="button">Editar</button>
+                                </form>
+                                <%}else{%>
+                                    <form action="/products/cart" method="GET">
+                                        <button type="submit" class="button">Agregar al carrito</button>
+                                    </form>
+
+                                    <%} %>
+
+                        </div>
+                    </section>
+                </article>
+                <% } %>
+
+        </div>
+    </body>
+</main>
+<footer>
+    <%- include ("../partials/footer") %>
+</footer>
+
+</html>

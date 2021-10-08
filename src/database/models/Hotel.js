@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     let cols = {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING
@@ -16,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         city_id: {
             type: DataTypes.INTEGER
+        },
+        image: {
+            type: DataTypes.STRING
         }
     };
 
@@ -25,6 +29,18 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Hotel = sequelize.define("Hotel", cols, config);
+
+    Hotel.associate = function (models) {
+        Hotel.belongsTo(models.HotelCategory, {
+            as: "hotelCategories",
+            foreignKey: "hotelCategory_id"
+        });
+
+        Hotel.belongsTo(models.City, {
+            as: "cities",
+            foreignKey: "city_id"
+        });
+    }
 
     return Hotel;
 };

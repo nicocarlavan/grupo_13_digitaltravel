@@ -12,44 +12,84 @@
     </header>
     <main>
         <section>
-            <% if (productToEdit !=undefined ) {%>
-                <form action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="POST" class='form'>
+            <% if (product !=undefined ) {%>
+                <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST" class='form'>
                     <h3>Editar Articulo</h3>
-                    <input type="text" name="name" required placeholder="Nombre del Producto"
-                        value="<%= productToEdit.name %>">
+
+                    <select name="hotel_id" id="hotel_id" required>
+
+                        <option value="<%= hotels.id %>" selected>
+                            <%= hotels.name %>
+                        </option>
+
+
+                    </select>
+
                     <br>
-                    <input type="number" name="price" required placeholder="Precio" value="<%= productToEdit.price %>">
+                    <input type="number" name="price" required placeholder="Precio" value="<%= product.price %>">
                     <br>
-                    <input type="text" name="room" required placeholder="Tipo de habitación"
-                        value="<%= productToEdit.room %>">
+                    <select name="roomType_id" id="roomType_id" required>
+                        <option disabled> -- Seleccione tipo de habitación -- </option>
+                        <% for( let i=0; i < types.length; i++ ) { %>
+
+                            <option value="<%= types[i].id %>" <%=types[i].type==product.roomType.type ? 'selected' :
+                                null %> >
+                                <%= types[i].type %>
+                            </option>
+                            <% } %>
+
+                    </select>
                     <br>
-                    <input type="text" name="category" required placeholder="Categoria"
-                        value="<%= productToEdit.category %>">
+                    <select name="roomCategory_id" id="roomCategory_id" required>
+                        <option disabled> -- Seleccione categoria de habitación -- </option>
+                        <% for( let i=0; i < categories.length; i++ ) { %>
+
+                            <option value="<%= categories[i].id %>"
+                                <%=categories[i].category==product.roomCategory.category ? 'selected' : null %> >
+                                <%= categories[i].category %>
+                            </option>
+                            <% } %>
+
+                    </select>
                     <br>
-                    <input type="text" name="city" required placeholder="Ciudad" value="<%= productToEdit.city %>">
-                    <br>
-                    <input type="text" name="description" required placeholder="Descripción"
-                        value="<%= productToEdit.description %>">
-                    <br>
-                    <input type="text" name="discount" required placeholder="Descuento"
-                        value="<%= productToEdit.discount %>">
-                    <br>
-                    <img src="/images/products/<%= productToEdit.image%>" alt="">
-                    <input type="file" name="image" accept=".jpg">
+                    <input type="text" name="discountRate" required placeholder="Descuento"
+                        value="<%= product.discountRate %>">
                     <br>
                     <button type="submit">Editar</button>
                 </form>
                 <% } else { %>
                     <form action="/products/store" method="POST" enctype="multipart/form-data" class="form">
                         <h3>Crear Articulo</h3>
-                        <input type="text" name="name" required placeholder="Nombre del Producto">
+                        <select name="hotel_id" id="hotel_id" required>
+                            <option disabled selected> -- Seleccione un hotel -- </option>
+                            <% for( let i=0; i < hotels.length; i++ ) { %>
+                                <option value="<%= hotels[i].id %>">
+                                    <%= hotels[i].name %>
+                                </option>
+                                <% } %>
+
+                        </select>
                         <input type="number" name="price" required placeholder="Precio">
-                        <input type="text" name="room" required placeholder="Tipo de habitación">
-                        <input type="text" name="category" required placeholder="Categoria">
-                        <input type="text" name="city" required placeholder="Ciudad">
-                        <input type="text" name="description" required placeholder="Descripción">
-                        <input type="text" name="discount" required placeholder="Descuento">
-                        <input type="file" name="image" accept=".jpg" required placeholder="Imagen">
+                        <select name="roomType_id" id="roomType_id" required>
+                            <option disabled selected> -- Seleccione tipo de habitación -- </option>
+                            <% for( let i=0; i < types.length; i++ ) { %>
+                                <option value="<%= types[i].id %>">
+                                    <%= types[i].type %>
+                                </option>
+                                <% } %>
+
+                        </select>
+                        <select name="roomCategory_id" id="roomCategory_id" required>
+                            <option disabled selected> -- Seleccione categoria de habitación -- </option>
+                            <% for( let i=0; i < categories.length; i++ ) { %>
+                                <option value="<%= categories[i].id %>">
+                                    <%= categories[i].category %>
+                                </option>
+                                <% } %>
+
+                        </select>
+                        <input type="text" name="discountRate" required placeholder="Descuento">
+                        <!-- <input type="file" name="image" accept=".jpg" required placeholder="Imagen"> -->
                         <button type="submit">Crear</button>
                     </form>
                     <% } %>
