@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ("../partials/head") %>
+        <title>Editar Usuario</title>
+</head>
+
+<body>
+    <header>
+        <%- include ("../partials/header") %>
+    </header>
+    <main>
+        <section>
+            <form action="/admin/users/<%=user.id%>?_method=PUT" method="POST" class='form'>
+                <h3>Editar Usuario</h3>
+
+                <select name="user_id" id="user_id" disabled>
+                    <option value selected>
+                        <%= user.id %>
+                    </option>
+                </select>
+
+                <br>
+                <input type="text" name="firstName" required placeholder="Nombre" value="<%= user.firstName %>">
+                <br>
+                <input type="text" name="lastName" required placeholder="Apellido" value="<%= user.lastName %>">
+                <br>
+                <input type="email" name="email" required placeholder="E-Mail" value="<%= user.email %>">
+                <br>
+                <select name="role_id" id="role_id" required>
+                    <option disabled> -- Seleccione rol -- </option>
+                    <% for( let i=0; i < roles.length; i++ ) { %>
+
+                        <option value="<%= roles[i].id %>" <%=roles[i].id==user.role_id ? 'selected' : null %> >
+                            <%= roles[i].role %>
+                        </option>
+                        <% } %>
+
+                </select>
+                <br>
+                <br>
+                <button type="submit">Editar</button>
+                <form action="/admin/users/" method="GET" class='form'>
+                    <button type="submit">Cancelar</button>
+                </form>
+            </form>
+
+        </section>
+    </main>
+    <footer>
+        <%- include ("../partials/footer") %>
+    </footer>
+
+</body>
+
+</html>

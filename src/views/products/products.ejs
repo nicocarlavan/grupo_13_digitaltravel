@@ -30,9 +30,6 @@
                                         <% }%>
                             </h2>
                         </div>
-                        <div>
-                            <%= products[i].hotel.description %>
-                        </div>
                         <br>
                         <div>
                             Tipo de habitación: <%= products[i].roomType.type %>
@@ -51,7 +48,7 @@
                         </div>
                         <br>
                         <div>
-                            <% if (locals.isLogged && locals.userLogged.role==9) { %>
+                            <% if (locals.isLogged && locals.userLogged.role_id==2) { %>
                                 <form action="/products/delete/<%= products[i].id %>" method="POST">
                                     <button type="submit" class="button">Eliminar</button>
                                 </form>
@@ -59,6 +56,9 @@
                                     <button type="submit" class="button">Editar</button>
                                 </form>
                                 <%}else{%>
+                                    <form action="/products/detail/<%= products[i].id %>" method="GET">
+                                        <button type="submit" class="button">Detalle</button>
+                                    </form>
                                     <form action="/products/cart" method="GET">
                                         <button type="submit" class="button">Agregar al carrito</button>
                                     </form>

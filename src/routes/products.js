@@ -24,6 +24,8 @@ const productsController = require('../controllers/productsController')
 
 router.get('/', productsController.index);
 
+router.post('/', productsController.indexSearch);
+
 router.get('/sale', productsController.sale);
 
 router.get('/detail/:id', productsController.detalle);

@@ -27,10 +27,13 @@ router.post('/register', upload.single('image'), validations, usersController.ne
 
 router.get('/admin', adminAuthMiddleware, usersController.admin);
 
-router.post('/admin', adminAuthMiddleware, usersController.userRole);
-
-//prueba db
 router.get('/admin/users', adminAuthMiddleware, usersController.userAdmin);
+
+router.get('/admin/users/:id', adminAuthMiddleware, usersController.edit);
+
+router.put('/admin/users/:id', usersController.update);
+
+router.post('/admin/users/delete/:id', usersController.destroy);
 
 router.get('/logout', usersController.logout);
 

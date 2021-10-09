@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { REPL_MODE_SLOPPY } = require('repl');
 const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 //const productsFilePath = path.join(__dirname, '../data/products.json');
 //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -17,6 +18,34 @@ const productsController = {
             .then(products => {
                 res.render('./products/products', { products: products });
             })
+
+    },
+    indexSearch: (req, res) => {
+
+        db.Hotel.findAll({
+            //include: [{ model: db.Hotel, as: 'hotel', include: ['cities', 'hotelCategories'] }, 'roomType', 'roomCategory'],
+            where: {
+                name: { [Op.like]: '%' + req.body.search + '%' }
+            }
+        }).then(hotels => {
+            let hotelsId = [];
+            hotels.forEach(hotel => {
+                hotelsId.push(hotel.id)
+            });
+
+            db.Product.findAll({
+                include: [{ model: db.Hotel, as: 'hotel', include: ['cities', 'hotelCategories'] }, 'roomType', 'roomCategory'],
+                where: {
+                    hotel_id: { [Op.in]: hotelsId }
+                }
+            })
+                .then(result => {
+                    console.log(result);
+                    res.render('./products/products', { products: result });
+                });
+        })
+
+
 
     },
     sale: (req, res) => {

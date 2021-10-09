@@ -10,7 +10,7 @@ const User = {
             .then(users => {
                 return users;
             })
-    },
+    },/*
     generateId: function () {
         let allUsers = this.findAll();
         let lastUser = allUsers.pop();
@@ -19,15 +19,7 @@ const User = {
         }
         return 1;
 
-    },
-    roleUser: function () {
-        return 1;
-
-    },
-    roleAdmin: function () {
-        return 2;
-
-    },
+    },*/
     findAll: function () {
         return this.getData();
     },
@@ -77,7 +69,7 @@ const User = {
         //allUsers.push(newUser);
         //fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         //return newUser;
-    },
+    }/*,
     delete: function (id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter(oneUser => oneUser.id !== id);
@@ -95,7 +87,7 @@ const User = {
         }
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return true;
-    }
+    }*/
 
 }
 

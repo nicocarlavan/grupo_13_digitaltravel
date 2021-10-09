@@ -99,18 +99,51 @@ const usersController = {
     admin: (req, res) => {
         return res.render('./users/admin');
     },
-    userRole: (req, res) => {
-        let fields = req.body;
-        User.role(fields);
-        return res.render('./users/admin');
-    },
 
     //prueba db
     userAdmin: (req, res) => {
         db.User.findAll()
             .then(data => {
-                res.send(data);
+                res.render('./users/users', { users: data })
             })
+    },
+    edit: (req, res) => {
+
+        db.User.findAll({
+            include: ['roles']
+
+        })
+            .then(users => {
+                db.Role.findAll()
+                    .then(roles => {
+                        for (let i = 0; i < users.length; i++) {
+                            if (users[i].id == req.params.id) {
+                                db.User.findByPk(users[i].id)
+                                    .then(user => (
+                                        res.render('./users/editUser', { user: user, roles: roles })));
+                            }
+                        }
+
+                    })
+            })
+    },
+    update: (req, res) => {
+
+        db.User.update(
+            req.body,
+            {
+                where: { id: req.params.id }
+            })
+            .then(() => {
+                res.redirect('/admin/users');
+            })
+    },
+
+    destroy: (req, res) => {
+        db.User.destroy({
+            where: { id: req.params.id }
+        });
+        res.redirect('/admin/users');
     }
 
 }

@@ -3,7 +3,7 @@
 
 <head>
     <%- include ("../partials/head") %>
-        <title>Listado de Productos</title>
+        <title>Listado de Usuarios</title>
 </head>
 
 <header>
@@ -13,57 +13,61 @@
 
     <body>
         <div class="products-list">
-            <% for( let i=0; i < products.length; i++ ) { %>
+            <% for( let i=0; i < users.length; i++ ) { %>
                 <article>
                     <section>
-                        <img class="imagenofertainicio" src="/images/users/<%= products[i].hotel.image %>" alt="Foto">
+                        <img class="imagenofertainicio" src="/images/users/<%= users[i].image %>" alt="Foto"
+                            style="width: 30%">
 
                     </section>
 
                     <section>
                         <div>
                             <h2>
-                                <%= products[i].hotel.name %>
-                                    <% if (products[i].discountRate!==0 ) {%>
-                                        <img src="/images/sale.png" class="sale" alt="Foto">
-                                        <% }%>
+                                <%= users[i].firstName %>
+                                    <%= users[i].lastName %>
                             </h2>
                         </div>
-                        <div>
-                            <%= products[i].hotel.description %>
-                        </div>
                         <br>
                         <div>
-                            Tipo de habitación: <%= products[i].roomType.type %>
+                            ID: <%= users[i].id %>
                         </div>
+                        <div>
+                            Email: <%= users[i].email %>
+                        </div>
+                        <div>
+                            Rol: <%= users[i].role_id==2 ? 'Administrador' : 'Usuario' %>
+                        </div>
+                        <div>
+                            Creado: <%= users[i].created_at %>
+                        </div>
+                        <br>
                         <br>
                         <div>
-                            Categoría de Hotel: <%= products[i].roomCategory.category %>
-                        </div>
-                        <br>
-                        <div>
-                            Ciudad: <%= products[i].hotel.cities.city %>
-                        </div>
-                        <br>
-                        <div>Tarifa por noche: USD <%= products[i].price %>
 
-                        </div>
-                        <br>
-                        <div>
+                            <form action="/admin/users/delete/<%= users[i].id %>" method="POST">
+                                <button type="submit" class="button">Eliminar</button>
+                            </form>
+                            <form action="/admin/users/<%= users[i].id %>" method="GET">
+                                <button type="submit" class="button">Editar</button>
+                            </form>
+                            <!--
+
+                            
                             <% if (locals.isLogged && locals.userLogged.role==9) { %>
-                                <form action="/products/delete/<%= products[i].id %>" method="POST">
-                                    <button type="submit" class="button">Eliminar</button>
-                                </form>
-                                <form action="/products/edit/<%= products[i].id %>" method="GET">
-                                    <button type="submit" class="button">Editar</button>
-                                </form>
-                                <%}else{%>
-                                    <form action="/products/cart" method="GET">
-                                        <button type="submit" class="button">Agregar al carrito</button>
-                                    </form>
+                                <form action=" /products/delete/<%=products[i].id %>" method="POST">
+                        <button type="submit" class="button">Eliminar</button>
+                        </form>
+                        <form action="/products/edit/<%= products[i].id %>" method="GET">
+                            <button type="submit" class="button">Editar</button>
+                        </form>
+                        <%}else{%>
+                            <form action="/products/cart" method="GET">
+                                <button type="submit" class="button">Agregar al carrito</button>
+                            </form>
 
-                                    <%} %>
-
+                            <%} %>
+                                -->
                         </div>
                     </section>
                 </article>
