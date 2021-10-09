@@ -69,7 +69,10 @@ const User = {
         //allUsers.push(newUser);
         //fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         //return newUser;
-    }/*,
+    }, roleUser: function () {
+        return 1;
+
+    },/*,
     delete: function (id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter(oneUser => oneUser.id !== id);

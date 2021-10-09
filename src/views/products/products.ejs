@@ -55,6 +55,9 @@
                                 <form action="/products/edit/<%= products[i].id %>" method="GET">
                                     <button type="submit" class="button">Editar</button>
                                 </form>
+                                <form action="/products/detail/<%= products[i].id %>" method="GET">
+                                    <button type="submit" class="button">Detalle</button>
+                                </form>
                                 <%}else{%>
                                     <form action="/products/detail/<%= products[i].id %>" method="GET">
                                         <button type="submit" class="button">Detalle</button>

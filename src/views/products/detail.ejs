@@ -53,7 +53,7 @@
                     <br>
                     <div>
 
-                        <% if (locals.isLogged && locals.userLogged.role==9) { %>
+                        <% if (locals.isLogged && locals.userLogged.role_id==2) { %>
                             <form action="/products/delete/<%= product.id %>" method="POST">
                                 <button type="submit" class="button">Eliminar</button>
                             </form>
