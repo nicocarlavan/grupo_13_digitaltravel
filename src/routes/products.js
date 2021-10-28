@@ -33,7 +33,9 @@ router.get('/detail/:id', productsController.detalle);
 
 router.get('/cart', authMiddleware, productsController.cart);
 
-router.post('/cart', productsController.cart);
+router.post('/cart', authMiddleware, productsController.addItemTocart);
+
+router.post('/cart/delete/:id', authMiddleware, productsController.deleteItem);
 
 router.get('/edit/:id', adminAuthMiddleware, productsController.edit);
 

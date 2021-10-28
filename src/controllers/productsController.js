@@ -77,7 +77,78 @@ const productsController = {
             });
     },
     cart: (req, res) => {
-        res.render('./products/cart')
+        db.Cart.findAll({
+            include: [{ model: db.CartItem, as: 'cartItems', include: ['products', 'carts'] }, 'users'],
+            where: {
+                user_id: req.session.userLogged.id,
+                paid: 0
+            }
+        })
+            .then(result => {
+                db.CartItem.findAll({
+                    include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
+                    where: { cart_id: result[0].id }
+                }).then(cartItems => {
+                    res.render('./products/cart', { cartItems: cartItems });
+                })
+
+            })
+    },
+
+    addItemTocart: (req, res) => {
+        db.Cart.findAll({
+            include: [{ model: db.CartItem, as: 'cartItems', include: ['products', 'carts'] }, 'users'],
+            where: {
+                user_id: req.session.userLogged.id,
+                paid: 0
+            }
+        })
+            .then(cart => {
+                if (cart[0]) {
+                    db.CartItem.create({
+                        product_id: req.body.id,
+                        cart_id: cart[0].id,
+                        inDate: req.body.inDate,
+                        outDate: req.body.outDate
+                    })
+                        .then(result => {
+                            db.CartItem.findAll({
+                                include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
+                                where: {
+                                    cart_id: result.cart_id,
+                                }
+                            }).then(cartItems => {
+                                res.render('./products/cart', { cartItems: cartItems });
+                            })
+
+                        })
+
+                } else {
+                    db.Cart.create({
+                        user_id: req.session.userLogged.id,
+                        paid: 0
+                    }).then(newCart => {
+                        db.CartItem.create({
+                            product_id: req.body.id,
+                            cart_id: newCart.id,
+                            inDate: req.body.inDate,
+                            outDate: req.body.outDate
+                        })
+                            .then(result => {
+                                db.CartItem.findAll({
+                                    include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
+                                    where: {
+                                        cart_id: result.cart_id,
+                                    }
+                                }).then(cartItems => {
+                                    res.render('./products/cart', { cartItems: cartItems });
+                                })
+
+                            })
+                    })
+                }
+
+            });
 
     },
 
@@ -192,6 +263,13 @@ const productsController = {
             where: { id: req.params.id }
         });
         res.redirect('/products');
+    },
+
+    deleteItem: (req, res) => {
+        db.CartItem.destroy({
+            where: { id: req.params.id }
+        });
+        res.redirect('/products/cart');
     }
 
 }

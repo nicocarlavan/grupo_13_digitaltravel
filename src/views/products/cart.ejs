@@ -3,42 +3,67 @@
 
 <head>
     <%- include ("../partials/head") %>
-        <title>Mi Carrito - Digital Travel</title>
+        <title>Carrito de Compras</title>
 </head>
 
-<body>
-    <header>
-        <%- include ("../partials/header") %>
-    </header>
-    <main>
-        <section class="nicocart">
-            <form action="/" method="POST" class="formcart">
-                <h2>Detalle de Compra</h2>
-                <article>
-                    <img src="/images/radisson.jpg" alt="Radisson New York" class="imagencart">
-                    <p>Radisson Hotel New York</p>
-                    <p>Habitación: Doble Deluxe</p>
-                    <p>IN: 11/09/2021</p>
-                    <p>OUT: 19/09/2021</p>
-                    <p>Precio: USD 529</p>
-                </article>
-                <article>
-                    <img src="/images/ar.png" alt="Radisson New York" class="imagencart">
-                    <p>AR - Buenos Aires - New York - Buenos Aires</p>
-                    <p>IN: 10/09/2021 - AR1300 Sale: 22.30 Llega: 08.35</p>
-                    <p>OUT: 19/09/2021 - AR1301 Sale: 21.00 Llega: 04.05</p>
-                    <p>Precio: USD 750</p>
-                </article>
-                <button type="submit">Comprar</button>
-                <button type="reset">Vaciar carrito</button>
+<header>
+    <%- include ("../partials/header") %>
+</header>
+<main>
 
-            </form>
-        </section>
-    </main>
-    <footer>
-        <%- include ("../partials/footer") %>
-    </footer>
+    <body>
+        <div class="products-list">
+            <h2>Carrito de compras</h2>
+            <% if (cartItems.length==0) { %>
+                <article>
 
-</body>
+                    <section>
+                        <div>
+                            <h2>
+                                Tu carrito de compras está vacio
+                            </h2>
+                        </div>
+                        <br>
+                    </section>
+                </article>
+                <% }else{ %>
+                    <% for( let i=0; i < cartItems.length; i++ ) { %>
+                        <article>
+
+                            <section>
+                                <div>
+                                    <h2>
+                                        <%= cartItems[i].products.hotel_id %>
+                                    </h2>
+                                </div>
+                                <br>
+                                <div>
+                                    Tipo de habitación: <%= cartItems[i].products.roomType_id %>
+                                </div>
+                                <br>
+                                <div>
+                                    Categoría de Hotel: <%= cartItems[i].products.roomCategory_id %>
+                                </div>
+                                <br>
+                                <div>Tarifa por noche: USD <%= cartItems[i].products.price %>
+
+                                </div>
+                                <br>
+                                <div>
+                                    <form action="/products/cart/delete/<%= cartItems[i].id %>" method="POST">
+                                        <button type="submit" class="button">Eliminar del carrito</button>
+                                    </form>
+                                </div>
+                            </section>
+                        </article>
+                        <% } %>
+                            <% } %>
+
+        </div>
+    </body>
+</main>
+<footer>
+    <%- include ("../partials/footer") %>
+</footer>
 
 </html>
