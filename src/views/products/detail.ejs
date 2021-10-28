@@ -51,6 +51,9 @@
                     <div>Tarifa por noche: USD <%= product.price %>
                     </div>
                     <br>
+                    <div>Descuento: <%= product.discountRate %>%
+                    </div>
+                    <br>
                     <div>
 
                         <% if (locals.isLogged && locals.userLogged.role_id==2) { %>

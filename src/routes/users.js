@@ -32,7 +32,7 @@ router.get('/admin/users', adminAuthMiddleware, usersController.userAdmin);
 
 router.get('/admin/users/:id', adminAuthMiddleware, usersController.edit);
 
-router.put('/admin/users/:id', registerValidations, usersController.update);
+router.put('/admin/users/:id', usersController.update);
 
 router.post('/admin/users/delete/:id', usersController.destroy);
 

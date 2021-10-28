@@ -3,6 +3,8 @@ const path = require('path');
 const { REPL_MODE_SLOPPY } = require('repl');
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
+const { validationResult } = require('express-validator');
+const { Console } = require('console');
 
 //const productsFilePath = path.join(__dirname, '../data/products.json');
 //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -112,23 +114,77 @@ const productsController = {
     },
 
     update: (req, res) => {
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            db.Product.findAll({
+                include: ['hotel', 'roomType', 'roomCategory']
 
-        db.Product.update(
-            req.body,
-            {
-                where: { id: req.params.id }
             })
-            .then(() => {
-                res.redirect('/products/detail/' + req.params.id)
-            })
+                .then(products => {
+                    db.RoomType.findAll()
+                        .then(roomTypes => {
+                            db.RoomCategory.findAll()
+                                .then(roomCategories => {
+
+                                    for (let i = 0; i < products.length; i++) {
+                                        if (products[i].id == req.params.id) {
+                                            db.Hotel.findByPk(products[i].hotel_id)
+                                                .then(hotel => (
+                                                    res.render('./products/edit', {
+                                                        product: products[i], hotels: hotel, types: roomTypes, categories: roomCategories,
+                                                        errors: resultValidation.mapped(),
+                                                        oldData: req.body
+                                                    })));
+                                        }
+                                    }
+
+                                })
+                        })
+                })
+
+        } else {
+            db.Product.update(
+                req.body,
+                {
+                    where: { id: req.params.id }
+                })
+                .then(() => {
+                    res.redirect('/products/detail/' + req.params.id)
+                })
+        }
     },
 
     store: (req, res) => {
-        db.Product.create(
-            req.body
-        )
-            .then(res.redirect('/products/')
-            );
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            db.Product.findAll({
+                include: ['hotel', 'roomType', 'roomCategory']
+
+            })
+                .then(products => {
+                    db.RoomType.findAll()
+                        .then(roomTypes => {
+                            db.RoomCategory.findAll()
+                                .then(roomCategories => {
+                                    db.Hotel.findAll()
+                                        .then(hotel => (
+                                            res.render('./products/edit', {
+                                                product: undefined, hotels: hotel, types: roomTypes, categories: roomCategories,
+                                                errors: resultValidation.mapped(),
+                                                oldData: req.body
+                                            })))
+                                })
+                        })
+                })
+        }
+        else {
+            db.Product.create(
+                req.body
+            )
+                .then(res.redirect('/products/')
+                );
+        }
+
     },
 
     destroy: (req, res) => {
