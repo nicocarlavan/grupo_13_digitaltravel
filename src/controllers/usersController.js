@@ -128,7 +128,13 @@ const usersController = {
             })
     },
     update: (req, res) => {
-
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            return res.render('./users/editUser', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
         db.User.update(
             req.body,
             {
