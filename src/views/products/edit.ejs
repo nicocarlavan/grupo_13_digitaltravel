@@ -4,6 +4,7 @@
 <head>
     <%- include ("../partials/head") %>
         <title>Agregar Producto</title>
+        <script src="/js/productsValidation.js"></script>
 </head>
 
 <body>
@@ -15,13 +16,14 @@
             <% if (product !=undefined ) {%>
                 <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST" class='form'>
                     <h3>Editar Articulo</h3>
+                    <ul class="errores"></ul>
                     <% if (locals.errors && errors.hotel_id) { %>
                         <div class="formError">
                             <%= errors.hotel_id.msg %>
                                 <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                         </div>
                         <% } %>
-                            <select name="hotel_id" id="hotel_id" required>
+                            <select name="hotel_id" id="hotel_id" required class="form-control">
 
                                 <option value="<%= hotels.id %>" selected>
                                     <%= hotels.name %>
@@ -35,7 +37,7 @@
                                         <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                                 </div>
                                 <% } %>
-                                    <select name="roomType_id" id="roomType_id" required>
+                                    <select name="roomType_id" id="roomType_id" required class="form-control">
                                         <option disabled> -- Seleccione tipo de habitación -- </option>
                                         <% for( let i=0; i < types.length; i++ ) { %>
 
@@ -53,7 +55,8 @@
                                                     style="font-size: 20px; margin-left: 5px;"></i>
                                         </div>
                                         <% } %>
-                                            <select name="roomCategory_id" id="roomCategory_id" required>
+                                            <select name="roomCategory_id" id="roomCategory_id" required
+                                                class="form-control">
                                                 <option disabled> -- Seleccione categoria de habitación -- </option>
                                                 <% for( let i=0; i < categories.length; i++ ) { %>
 
@@ -73,8 +76,8 @@
                                                             style="font-size: 20px; margin-left: 5px;"></i>
                                                 </div>
                                                 <% } %>
-                                                    <input type="number" name="price" placeholder="Precio"
-                                                        value="<%= product.price %>">
+                                                    <input type="number" name="price" id="price" placeholder="Precio"
+                                                        class="form-control" value="<%= product.price %>">
                                                     <% if (locals.errors && errors.discountRate) { %>
                                                         <div class="formError">
                                                             <%= errors.discountRate.msg %>
@@ -82,8 +85,8 @@
                                                                     style="font-size: 20px; margin-left: 5px;"></i>
                                                         </div>
                                                         <% } %>
-                                                            <input type="text" name="discountRate"
-                                                                placeholder="Descuento"
+                                                            <input type="text" name="discountRate" id="discountRate"
+                                                                class="form-control" placeholder="Descuento"
                                                                 value="<%= product.discountRate %>">
 
                                                             <button type="submit">Editar</button>
@@ -91,13 +94,14 @@
                 <% } else { %>
                     <form action="/products/store" method="POST" enctype="multipart/form-data" class="form">
                         <h3>Crear Articulo</h3>
+                        <ul class="errores"></ul>
                         <% if (locals.errors && errors.hotel_id) { %>
                             <div class="formError">
                                 <%= errors.hotel_id.msg %>
                                     <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                             </div>
                             <% } %>
-                                <select name="hotel_id" id="hotel_id" required>
+                                <select name="hotel_id" id="hotel_id" required class="form-control">
                                     <option disabled selected> -- Seleccione un hotel -- </option>
                                     <% for( let i=0; i < hotels.length; i++ ) { %>
                                         <option value="<%= hotels[i].id %>" <%=locals.oldData &&
@@ -114,7 +118,7 @@
                                                 style="font-size: 20px; margin-left: 5px;"></i>
                                     </div>
                                     <% } %>
-                                        <select name="roomType_id" id="roomType_id" required>
+                                        <select name="roomType_id" id="roomType_id" required class="form-control">
                                             <option disabled selected> -- Seleccione tipo de habitación -- </option>
                                             <% for( let i=0; i < types.length; i++ ) { %>
                                                 <option value="<%= types[i].id %>" <%=locals.oldData &&
@@ -131,7 +135,8 @@
                                                         style="font-size: 20px; margin-left: 5px;"></i>
                                             </div>
                                             <% } %>
-                                                <select name="roomCategory_id" id="roomCategory_id" required>
+                                                <select name="roomCategory_id" id="roomCategory_id" required
+                                                    class="form-control">
                                                     <option disabled selected> -- Seleccione categoria de habitación --
                                                     </option>
                                                     <% for( let i=0; i < categories.length; i++ ) { %>
@@ -150,7 +155,8 @@
                                                                 style="font-size: 20px; margin-left: 5px;"></i>
                                                     </div>
                                                     <% } %>
-                                                        <input type="number" name="price" placeholder="Precio" required
+                                                        <input type="number" name="price" id="price"
+                                                            class="form-control" placeholder="Precio"
                                                             value="<%= locals.oldData && locals.oldData.price ? locals.oldData.price : null %>">
                                                         <% if (locals.errors && errors.discountRate) { %>
                                                             <div class="formError">
@@ -159,8 +165,8 @@
                                                                         style="font-size: 20px; margin-left: 5px;"></i>
                                                             </div>
                                                             <% } %>
-                                                                <input type="text" name="discountRate" required
-                                                                    placeholder="Descuento"
+                                                                <input type="text" name="discountRate" id="discountRate"
+                                                                    class="form-control" placeholder="Descuento"
                                                                     value="<%= locals.oldData && locals.oldData.discountRate ? locals.oldData.discountRate : null %>">
                                                                 <!-- <input type="file" name="image" accept=".jpg" required placeholder="Imagen"> -->
                                                                 <button type="submit">Crear</button>

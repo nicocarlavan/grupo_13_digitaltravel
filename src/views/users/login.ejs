@@ -4,6 +4,7 @@
 <head>
     <%- include ("../partials/head") %>
         <title>Login - Digital Travel</title>
+        <script src="/js/loginValidation.js"></script>
 </head>
 
 <body style="background-color: #000000;">
@@ -16,14 +17,16 @@
                 <a href="/"><img src="/images/logoavion.png" alt="Logo Digital Travel" class="logo"></a>
                 <h3>Digital Travel</h3>
                 <br>
+                <ul class="errores"></ul>
                 <% if (locals.errors && errors.email) { %>
                     <div class="formError">
                         <%= errors.email.msg %>
                             <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                     </div>
                     <% } %>
-                        <input type="email" name="email" required placeholder="E-mail">
-                        <input type="password" name="password" required placeholder="Contraseña">
+                        <input type="email" name="email" id="email" placeholder="E-mail" class="form-control">
+                        <input type="password" name="password" id="password" placeholder="Contraseña"
+                            class="form-control">
                         <input type="checkbox" name="rememberme">Recordar mi usuario
                         <button type="submit">Iniciar sesión </button>
             </form>

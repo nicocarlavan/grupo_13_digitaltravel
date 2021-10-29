@@ -3,7 +3,9 @@
 
 <head>
     <%- include ("../partials/head") %>
+
         <title>Registrate - Digital Travel</title>
+        <script src="/js/registerValidation.js"></script>
 </head>
 
 <body style="background-color: #000000;">
@@ -15,13 +17,16 @@
                 <a href="/"><img src="/images/logoavion.png" alt="Logo Digital Travel" class="logo"></a>
                 <h3>Digital Travel</h3>
                 <br>
+                <ul class="errores"></ul>
                 <% if (locals.errors && errors.firstName) { %>
                     <div class="formError">
                         <%= errors.firstName.msg %>
                             <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                     </div>
+
                     <% } %>
-                        <input type="text" name="firstName" placeholder="Nombre"
+
+                        <input type="text" name="firstName" id="firstName" placeholder="Nombre"
                             class="form-control <%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.firstName : null %>">
 
@@ -32,7 +37,7 @@
                                     <i class="fas fa-exclamation" style="font-size: 20px; margin-left: 5px;"></i>
                             </div>
                             <% } %>
-                                <input type="text" name="lastName" placeholder="Apellido"
+                                <input type="text" name="lastName" id="lastName" placeholder="Apellido"
                                     class="form-control <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
                                     value="<%= locals.oldData ? oldData.lastName : null %>">
 
@@ -43,7 +48,7 @@
                                                 style="font-size: 20px; margin-left: 5px;"></i>
                                     </div>
                                     <% } %>
-                                        <input type="email" name="email" placeholder="E-mail"
+                                        <input type="email" name="email" id="email" placeholder="E-mail"
                                             class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                                             value="<%= locals.oldData ? oldData.email : null %>">
                                         <% if (locals.errors && errors.password) { %>
@@ -53,7 +58,8 @@
                                                         style="font-size: 20px; margin-left: 5px;"></i>
                                             </div>
                                             <% } %>
-                                                <input type="password" name="password" placeholder="Contraseña"
+                                                <input type="password" name="password" id="password"
+                                                    placeholder="Contraseña"
                                                     class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
                                                 <% if (locals.errors && errors.repassword) { %>
                                                     <div class="formError">
@@ -62,7 +68,7 @@
                                                                 style="font-size: 20px; margin-left: 5px;"></i>
                                                     </div>
                                                     <% } %>
-                                                        <input type="password" name="repassword"
+                                                        <input type="password" name="repassword" id="repassword"
                                                             placeholder="Confirmar Contraseña"
                                                             class="form-control <%= locals.errors && errors.repassword ? 'is-invalid' : null %>">
                                                         <% if (locals.errors && errors.image) { %>
@@ -72,7 +78,7 @@
                                                                         style="font-size: 20px; margin-left: 5px;"></i>
                                                             </div>
                                                             <% } %>
-                                                                <input type="file" name="image"
+                                                                <input type="file" name="image" id="image"
                                                                     accept=".jpg, .jpeg, .png, .gif"
                                                                     placeholder="Imagen de perfil">
                                                                 <button type="submit">Registrarse</button>

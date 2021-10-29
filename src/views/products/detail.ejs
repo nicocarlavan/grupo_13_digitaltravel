@@ -4,6 +4,7 @@
 <head>
     <%- include ("../partials/head") %>
         <title>Detalle del producto</title>
+        <script src="/js/cartItemValidation.js"></script>
 </head>
 
 <header>
@@ -64,11 +65,12 @@
                                 <button type="submit" class="button">Editar</button>
                             </form>
                             <%}else{%>
-                                <form action="/products/cart" method="POST">
-                                    <label for="dateIn">Fecha de Ingreso:</label>
-                                    <input type="date" id="inDate" name="inDate" min="2021-11-01" max="2030-12-31">
-                                    <label for="dateIn">Fecha de Salida:</label>
-                                    <input type="date" id="outDate" name="outDate" min="2021-11-01" max="2030-12-31">
+                                <ul class="errores"></ul>
+                                <form action="/products/cart" method="POST" class="formDate">
+                                    <label for="inDate">Fecha de Ingreso:</label>
+                                    <input type="date" id="inDate" name="inDate">
+                                    <label for="outDate">Fecha de Salida:</label>
+                                    <input type="date" id="outDate" name="outDate" min="2021-11-01">
                                     <input type="number" id="id" name="id" value="<%= product.id  %>" hidden>
                                     <button type="submit" class="button">Agregar al carrito</button>
                                 </form>
