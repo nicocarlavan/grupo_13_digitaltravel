@@ -79,6 +79,18 @@
 #### Deberíamos dejar de hacer:
 -Organizarnos mal.
 
+#### Sprint 7:
+#### Mal:
+- Muy mala distribución de las tareas.
+- un integrante no participó del sprint. 
+#### Bien: 
+-Entregamos en tiempo y forma. 
+-No nos juntamos tanto a ver lo que estaba haciendo cada uno.
+#### Deberíamos dejar de hacer:
+-Organizarnos mal.
+-Que unos paeticipen mas que otros
+
+
 #### _Integrantes_:
 
 `Nicolás Fernández Carlavan`
