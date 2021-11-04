@@ -26,13 +26,25 @@ const publicPath = path.resolve(__dirname, './public');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
+//Rutas
 const rutasProductos = require("./routes/products");
 const rutasUsuarios = require("./routes/users");
 const rutasHome = require("./routes/home");
 
+
+//Rutas APIs
+const rutasUsuariosApi = require('./routes/api/usersApiRouter');
+const rutasProductosApi = require('./routes/api/productsApiRouter');
+
+
+
 app.use("/products", rutasProductos);
 app.use("/", rutasUsuarios);
 app.use("/", rutasHome);
+
+
+app.use('/api/users', rutasUsuariosApi);
+app.use('/api/products', rutasProductosApi);
 
 
 app.use(express.static(publicPath));
