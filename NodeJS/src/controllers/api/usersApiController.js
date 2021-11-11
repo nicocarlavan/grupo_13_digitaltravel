@@ -12,7 +12,8 @@ module.exports = {
                         firstName: user.firstName,
                         lastName: user.lastName,
                         email: user.email,
-                        detail: 'api/users/' + user.id
+                        image: 'http://localhost:3000/images/users/' + user.image,
+                        detail: 'http://localhost:3000/api/users/' + user.id
                     }
                     users.push(aux);
                 });
@@ -20,7 +21,7 @@ module.exports = {
                     meta: {
                         status: 200,
                         count: users.length,
-                        url: 'api/users'
+                        url: 'http://localhost:3000/api/users'
                     },
                     data: users
                 }
@@ -38,13 +39,13 @@ module.exports = {
                         firstName: result.firstName,
                         lastName: result.lastName,
                         email: result.email,
-                        image: 'images/users/' + result.image
+                        image: 'http://localhost:3000/images/users/' + result.image
                     }
                     respuesta = {
                         meta: {
                             status: 200,
                             count: user.length,
-                            url: 'api/user/' + user.id
+                            url: 'http://localhost:3000/api/users/' + user.id
                         },
                         data: user
                     }

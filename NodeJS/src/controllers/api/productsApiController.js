@@ -30,8 +30,12 @@ module.exports = {
                                 id: product.id,
                                 name: product.hotel.name,
                                 roomType: product.roomType.type,
+                                roomCategory: product.roomCategory.category,
                                 description: product.hotel.description,
-                                detail: 'api/products/' + product.id
+                                price: product.price,
+                                discountRate: product.discountRate,
+                                image: 'http://localhost:3000/images/products/' + product.hotel.image,
+                                detail: 'http://localhost:3000/api/products/' + product.id
                             }
                             products.push(aux);
                         });
@@ -39,7 +43,7 @@ module.exports = {
                             meta: {
                                 status: 200,
                                 count: result.length,
-                                url: 'api/products'
+                                url: 'http://localhost:3000/api/products/'
                             },
                             data: {
                                 count: result.length,

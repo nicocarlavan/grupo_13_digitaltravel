@@ -1,50 +1,77 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SmallCard from './SmallCard';
 
-/*  Cada set de datos es un objeto literal */
-
-/* <!-- Movies in DB --> */
-
-let moviesInDB = {
-    title: 'Movies in Data Base',
-    color: 'primary', 
-    cuantity: 21,
-    icon: 'fa-clipboard-list'
+let products = {
+    color: "primary",
+    titulo: "Productos en Base de Datos",
+    icono: "fas fa-cart-plus",
 }
 
-/* <!-- Total awards --> */
-
-let totalAwards = {
-    title:' Total awards', 
-    color:'success', 
-    cuantity: '79',
-    icon:'fa-award'
+let hotels = {
+    color: "success",
+    titulo: "Hoteles en Base de Datos",
+    icono: "fas fa-concierge-bell",
 }
 
-/* <!-- Actors quantity --> */
-
-let actorsQuantity = {
-    title:'Actors quantity' ,
-    color:'warning',
-    cuantity:'49',
-    icon:'fa-user-check'
+let users = {
+    color: "warning",
+    titulo: "Usuarios en Base de Datos",
+    icono: "fas fa-user",
 }
 
-let cartProps = [moviesInDB, totalAwards, actorsQuantity];
+let cardProps = [products, hotels, users];
 
-function ContentRowMovies(){
-    return (
-    
-        <div className="row">
-            
-            {cartProps.map( (movie, i) => {
 
-                return <SmallCard {...movie} key={i}/>
-            
-            })}
+class ContentRowTop extends Component {
 
-        </div>
-    )
+    constructor() {
+        super()
+        this.state = {
+            productsQuantity: 0,
+            hotelsQuantity: 0,
+            usersQuantity: 0
+        }
+    }
+    componentDidMount() {
+        fetch('/api/products')
+            .then(resultado => {
+                return resultado.json()
+            })
+            .then(productos => {
+                this.setState({
+                    productsQuantity: productos.data.count,
+                    hotelsQuantity: Object.keys(productos.data.countByCategory).length
+                })
+            })
+            .catch(error => console.log('Error: ' + error));
+        fetch('/api/users')
+            .then(resultado => {
+                return resultado.json()
+            })
+            .then(usuarios => {
+                this.setState({
+                    usersQuantity: usuarios.meta.count
+                })
+            })
+            .catch(error => console.log('Error: ' + error));
+    }
+
+    render() {
+        let values = Object.values(this.state);
+        return (
+            <React.Fragment>
+
+                {/*<!-- Content Row -->*/}
+                <div className="row">
+                    {
+                        cardProps.map((elemento, index) => {
+                            return <SmallCard  {...elemento} key={index} quantity={values[index]} />
+                        })
+                    }
+                </div>
+            </React.Fragment>
+        )
+    }
+
 }
-
-export default ContentRowMovies;
+export default ContentRowTop;
