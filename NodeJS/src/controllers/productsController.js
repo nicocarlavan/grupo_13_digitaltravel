@@ -5,6 +5,13 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 const { validationResult } = require('express-validator');
 const { Console } = require('console');
+const mercadoPago = require('mercadopago');
+
+
+
+mercadoPago.configure({
+    access_token: 'APP_USR-806615732184603-111415-85e1325dcb0014d097c9b8d13e67c539-1018907559'
+});
 
 //const productsFilePath = path.join(__dirname, '../data/products.json');
 //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -270,6 +277,78 @@ const productsController = {
             where: { id: req.params.id }
         });
         res.redirect('/products/cart');
+    },
+    checkOut: (req, res) => {
+        db.Cart.findAll({
+            include: [{ model: db.CartItem, as: 'cartItems', include: ['products', 'carts'] }, 'users'],
+            where: {
+                user_id: req.session.userLogged.id,
+                paid: 0
+            }
+        })
+            .then(result => {
+                db.CartItem.findAll({
+                    include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
+                    where: { cart_id: result[0].id }
+                }).then(cartItems => {
+
+                    let items = []
+                    for (let i = 0; i < cartItems.length; i++) {
+                        items.push({
+                            id: cartItems[i].cart_id,
+                            title: cartItems[i].products.hotel.name,
+                            description: cartItems[i].products.roomType.type + ' ' + cartItems[i].products.roomCategory.category,
+                            unit_price: cartItems[i].products.price,
+                            quantity: 1,
+                        })
+                    }
+                    let preference = {
+                        items: items,
+                        back_urls: {
+                            success: "https://www.mercadopago.com.ar/activities#from-section=home",
+                        },/*
+                        payer: {
+                            name: req.session.userLogged.firstName,
+                            surname: req.session.userLogged.lastName,
+                            email: req.session.userLogged.email,
+                        },*/
+                        auto_return: "approved",
+                        payment_methods: {
+                            "installments": 12
+                        }
+                        //notification_url: "https://www.your-site.com/ipn"
+                    }
+
+                    mercadoPago.preferences.create(preference)
+                        .then(function (response) {
+                            db.Cart.update(
+                                {
+                                    paid: 1
+                                },
+                                {
+                                    where: {
+                                        user_id: req.session.userLogged.id,
+                                        paid: 0
+                                    }
+                                })
+                                .then(() => {
+                                    db.Cart.create({
+                                        user_id: req.session.userLogged.id,
+                                        paid: 0
+                                    })
+                                        .then(res.redirect(response.body.init_point))
+
+                                })
+
+                        })
+                        .catch(error => console.log('Error: ' + error))
+
+                })
+
+
+            })
+
+
     }
 
 }

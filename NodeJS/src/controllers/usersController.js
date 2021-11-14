@@ -27,23 +27,47 @@ const usersController = {
                         if (req.body.rememberme) {
                             res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 });
                         };
-                        return res.redirect('/profile');
+
+                        db.Cart.findAll({
+                            where: {
+                                user_id: req.session.userLogged.id,
+                                paid: 0
+                            }
+                        })
+                            .then(result => {
+                                if (!result[0]) {
+                                    db.Cart.create({
+                                        user_id: req.session.userLogged.id,
+                                        paid: 0
+                                    })
+                                        .then(
+                                            res.redirect('/profile')
+                                        )
+                                } else {
+                                    res.redirect('/profile')
+                                }
+                            })
+
+                    } else {
+                        return res.render('./users/login', {
+                            errors: {
+                                email: {
+                                    msg: 'Las credenciales ingresadas son inválidas'
+                                }
+                            }
+                        })
                     }
+
+                } else {
                     return res.render('./users/login', {
                         errors: {
                             email: {
-                                msg: 'Las credenciales ingresadas son inválidas'
+                                msg: 'Este E-mail no se encuentra registrado'
                             }
                         }
                     })
                 }
-                return res.render('./users/login', {
-                    errors: {
-                        email: {
-                            msg: 'Este E-mail no se encuentra registrado'
-                        }
-                    }
-                })
+
             });
     },
     profile: (req, res) => {
@@ -87,6 +111,7 @@ const usersController = {
                 };
 
                 User.create(newUser);
+
                 return res.redirect('/login');
             });
 

@@ -33,7 +33,7 @@
                             <section>
                                 <div>
                                     <h2>
-                                        <%= cartItems[i].products.hotel_id %>
+                                        <%= cartItems[i].products.hotel.name %>
                                     </h2>
                                 </div>
                                 <br>
@@ -57,6 +57,16 @@
                             </section>
                         </article>
                         <% } %>
+                            <form action="/products/cart/checkout" method="POST">
+                                <% for( let i=0; i < cartItems.length; i++ ) { %>
+                                    <input type="hidden" name="cartItemId" value=<%=cartItems[i].id %>>
+                                    <input type="hidden" name="cartItemName" value=<%=cartItems[i].products.hotel.name
+                                        %>>
+                                    <input type="hidden" name="cartItemPrice" value=<%=cartItems[i].products.price %>>
+                                    <% } %>
+
+                                        <button type="submit" class="button">Comprar</button>
+                            </form>
                             <% } %>
 
         </div>
