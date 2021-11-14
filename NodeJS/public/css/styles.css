@@ -16,7 +16,6 @@ background-color: black;
 }
 
 .title{
-    font-family: 'Fredericka the Great', cursive;
     font-size: 40px;
     color: rgb(173, 130, 59);
     margin: auto;
@@ -25,7 +24,7 @@ background-color: black;
 }
 main {
     margin: 0 auto;
-    background-color: rgb(65, 65, 65)
+    
 
 }
 
@@ -176,6 +175,10 @@ color: red;
     background-color: rgb(250, 219, 191);
 }
 
+.formHome button, .formHome input {
+background-color: rgba(182, 180, 174, 0.851);
+}
+
 .button{
     width: 100%;
 }
@@ -208,7 +211,13 @@ color: red;
 }
 
 footer{
-    margin-bottom: 0px;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  height: 14%;
+
 }
 
 footer section{
@@ -224,7 +233,6 @@ footer section div {
     width: 30%;
 }
 
-/* Cuando paso el cursor por el DIV, debo cambiar el color del ICONO */
 
 footer section div h3 {
     margin-bottom: 0px;
@@ -239,8 +247,6 @@ footer section div p {
     font-size: 2em;
     padding-bottom: 10px;
 }
-
-
 
 
 
@@ -260,8 +266,8 @@ footer section div p {
     }
 
     .formHome {
-    padding: 20px;
-width: 50vw;
+    width:500px;
+    height: 100px;
 
 }
 
@@ -291,6 +297,14 @@ height: 40%;
 }
     ul.burger-menu{
         display: none;
+    }
+
+
+    .barra{
+         top: 0;
+
+  position: fixed;
+
     }
 
     nav.navbar.navbar-inverse div ul{

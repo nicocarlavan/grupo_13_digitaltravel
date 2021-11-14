@@ -13,63 +13,77 @@
 
     <body>
         <div class="products-list">
-            <h2>Carrito de compras</h2>
+            <br><br><br>
             <% if (cartItems.length==0) { %>
                 <article>
 
                     <section>
                         <div>
-                            <h2>
+                            <h4 class="alert alert-danger" role="alert" style="text-align: center;">
                                 Tu carrito de compras está vacio
-                            </h2>
+                            </h4>
                         </div>
                         <br>
                     </section>
                 </article>
                 <% }else{ %>
-                    <% for( let i=0; i < cartItems.length; i++ ) { %>
-                        <article>
+                    <form action="/products/cart/checkout" method="POST" style="text-align: center;">
 
-                            <section>
-                                <div>
-                                    <h2>
-                                        <%= cartItems[i].products.hotel.name %>
-                                    </h2>
-                                </div>
-                                <br>
-                                <div>
-                                    Tipo de habitación: <%= cartItems[i].products.roomType_id %>
-                                </div>
-                                <br>
-                                <div>
-                                    Categoría de Hotel: <%= cartItems[i].products.roomCategory_id %>
-                                </div>
-                                <br>
-                                <div>Tarifa por noche: ARS <%= cartItems[i].products.price %>
+                        <div>
+                            <h4 class="alert alert-success" role="alert" style="text-align: center;">
+                                Carrito de Compras
+                            </h4>
+                        </div>
+                        <button type="submit" class="btn btn-success">Comprar</button>
+                    </form>
+                    <br>
+                    <div class="row">
+                        <% for( let i=0; i < cartItems.length; i++ ) { %>
+
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= cartItems[i].products.hotel.name %>
+                                        </h5>
+                                        <p class="card-text">Tipo de habitación: <%= cartItems[i].products.roomType.type
+                                                %>
+                                                -
+                                                Categoría de Hotel: <%= cartItems[i].products.roomCategory.category %> -
+                                                    Tarifa Total: ARS <%= cartItems[i].products.price * daysQuantity[i]
+                                                        %>
+                                        </p>
+                                        <p class="card-text">
+                                            Fecha de Entrada <%= cartItems[i].inDate %> -
+                                                Fecha de Salida <%= cartItems[i].outDate %>
+                                        </p>
+                                        <form action="/products/cart/delete/<%= cartItems[i].id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger">Eliminar del carrito</button>
+                                        </form>
+
+                                    </div>
 
                                 </div>
-                                <br>
-                                <div>
-                                    <form action="/products/cart/delete/<%= cartItems[i].id %>" method="POST">
-                                        <button type="submit" class="button">Eliminar del carrito</button>
-                                    </form>
-                                </div>
-                            </section>
-                        </article>
-                        <% } %>
-                            <form action="/products/cart/checkout" method="POST">
-                                <% for( let i=0; i < cartItems.length; i++ ) { %>
-                                    <input type="hidden" name="cartItemId" value=<%=cartItems[i].id %>>
-                                    <input type="hidden" name="cartItemName" value=<%=cartItems[i].products.hotel.name
-                                        %>>
-                                    <input type="hidden" name="cartItemPrice" value=<%=cartItems[i].products.price %>>
-                                    <% } %>
-
-                                        <button type="submit" class="button">Comprar</button>
-                            </form>
+                            </div>
                             <% } %>
 
+
+
+
+                    </div>
+
+
+                    <% } %>
+
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </body>
 </main>
 <footer>

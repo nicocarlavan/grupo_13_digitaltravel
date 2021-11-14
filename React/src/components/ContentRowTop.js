@@ -1,6 +1,6 @@
 import React from 'react';
 import Actualizaciones from './Actualizaciones';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowCards from './ContentRowCards';
 import HotelesInDb from './HotelesInDb';
 function ContentRowTop() {
 	return (
@@ -11,14 +11,11 @@ function ContentRowTop() {
 					<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
 				</div>
 
-				{/*<!-- Content Row Movies-->*/}
-				<ContentRowMovies />
-				{/*<!-- End movies in Data Base -->*/}
+				<ContentRowCards />
 
 				<div className="row">
 					<HotelesInDb />
 				</div>
-				{/*<!-- Content Row Last Movie in Data Base -->*/}
 
 				<div className="row">
 					<Actualizaciones />

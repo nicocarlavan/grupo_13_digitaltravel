@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import ProductList from './ProductList';
+import UserList from './UserList';
 
-class Product extends Component {
+class User extends Component {
 
 	constructor() {
 		super()
 		this.state = {
-			listadoProductos: []
+			listadoUsuarios: []
 		}
 	}
 	componentDidMount() {
-		fetch('/api/products')
+		fetch('/api/users')
 			.then(respuesta => {
 				return respuesta.json()
 			})
-			.then(productos => {
+			.then(usuarios => {
 				this.setState({
-					listadoProductos: productos.data.products
+					listadoUsuarios: usuarios.data
 				})
 
 			})
@@ -27,11 +27,11 @@ class Product extends Component {
 
 		return (
 			<React.Fragment>
-				{/*<!-- PRODUCTS LIST -->*/}
+				{/*<!-- USERS LIST -->*/}
 
 
 				<div className="card shadow mb-4 w-100">
-					<h1 className="h3 mb-2 text-gray-800">Listado de Productos</h1>
+					<h1 className="h3 mb-2 text-gray-800">Listado de Usuarios</h1>
 					<div className="card-body">
 						<div className="table-responsive">
 							<table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
@@ -39,19 +39,16 @@ class Product extends Component {
 									<tr>
 										<th>ID</th>
 										<th>Imagen</th>
-										<th>Hotel</th>
-										<th>Tipo de Habitación</th>
-										<th>Categoria de Habitación</th>
-										<th>Descripción</th>
-										<th>Precio</th>
-										<th>Descuento</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Email</th>
 									</tr>
 								</thead>
 
 								<tbody>
 									{
-										this.state.listadoProductos.map((producto, index) => {
-											return <ProductList {...producto} key={producto.id} />
+										this.state.listadoUsuarios.map((usuario, index) => {
+											return <UserList {...usuario} key={usuario.id} />
 										})
 									}
 								</tbody>
@@ -59,22 +56,19 @@ class Product extends Component {
 									<tr>
 										<th>ID</th>
 										<th>Imagen</th>
-										<th>Hotel</th>
-										<th>Tipo de Habitación</th>
-										<th>Categoria de Habitación</th>
-										<th>Descripción</th>
-										<th>Precio</th>
-										<th>Descuento</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Email</th>
 									</tr>
 								</tfoot>
 							</table>
 						</div>
 					</div>
 				</div>
-			</React.Fragment >
+			</React.Fragment>
 		)
 
 	}
 
 }
-export default Product;
+export default User;

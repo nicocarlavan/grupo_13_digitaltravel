@@ -5,6 +5,7 @@ import ContentWrapper from './ContentWrapper';
 import HotelesInDb from './HotelesInDb';
 import Actualizaciones from './Actualizaciones';
 import Product from './Product';
+import User from './User';
 import Error404 from './Error404';
 
 function SideBar() {
@@ -26,8 +27,12 @@ function SideBar() {
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
-                        <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Digital Travel</span></Link>
+
+                        {/*<!-- Divider -->*/}
+                        <hr className="sidebar-divider my-0" />
+                        <div className="p-3 mb-2 bg-gradient-danger text-white">Digital Travel</div>
+
+                    </Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -36,7 +41,7 @@ function SideBar() {
                 {/*<!-- Heading -->*/}
                 <div className="sidebar-heading">Actions</div>
 
-                {/*<!-- Nav Item - Pages -->*/}
+                {/*<!-- Nav Item - Actualizaciones -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="Actualizaciones">
                         <i className="fas fa-fw fa-folder"></i>
@@ -44,18 +49,24 @@ function SideBar() {
                     </Link>
                 </li>
 
-                {/*<!-- Nav Item - Charts -->*/}
+                {/*<!-- Nav Item - Hoteles -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="HotelesInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Hoteles</span></Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
+                {/*<!-- Nav Item - Productos -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="Product">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Listado de Productos</span></Link>
+                </li>
+                {/*<!-- Nav Item - Usuarios -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="User">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Listado de Usuarios</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -67,6 +78,7 @@ function SideBar() {
                 <Route exact path='/' element={<ContentWrapper />} />
                 <Route path='/HotelesInDb' element={<HotelesInDb />} />
                 <Route path='/Product' element={<Product />} />
+                <Route path='/User' element={<User />} />
                 <Route path='/Actualizaciones' element={<Actualizaciones />} />
                 <Route path='*' element={<Error404 />} />
             </Routes>

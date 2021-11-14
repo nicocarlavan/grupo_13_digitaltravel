@@ -37,7 +37,7 @@ class ContentRowLastUser extends Component {
                         </div>
                         <div className="card-body">
                             <div className="text-center">
-                                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 40 + 'rem' }} src={this.state.image} alt=" Star Wars - Mandalorian " />
+                                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 30 + 'rem' }} src={this.state.image} alt=" Star Wars - Mandalorian " />
                             </div>
                             <h4>{this.state.firstName} {this.state.lastName}</h4>
                             <p>{this.state.email}</p>

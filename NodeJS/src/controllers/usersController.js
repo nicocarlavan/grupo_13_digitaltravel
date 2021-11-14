@@ -171,10 +171,37 @@ const usersController = {
     },
 
     destroy: (req, res) => {
-        db.User.destroy({
-            where: { id: req.params.id }
-        });
-        res.redirect('/admin/users');
+
+        db.Cart.findAll({
+            where: { user_id: req.params.id }
+
+        })
+            .then(result => {
+
+                result.forEach(cart => {
+                    console.log(cart.id)
+                    db.CartItem.destroy({
+                        where: { cart_id: cart.id }
+                    })
+
+                        .then(result => {
+
+                            db.Cart.destroy({
+                                where: { id: cart.id }
+                            })
+                            return
+                        })
+
+                });
+
+            })
+            .then(resp => {
+                db.User.destroy({
+                    where: { id: req.params.id }
+                });
+                res.redirect('/admin/users');
+            })
+
     }
 
 }

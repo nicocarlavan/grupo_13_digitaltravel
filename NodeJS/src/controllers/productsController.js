@@ -6,6 +6,7 @@ const Op = db.Sequelize.Op;
 const { validationResult } = require('express-validator');
 const { Console } = require('console');
 const mercadoPago = require('mercadopago');
+const moment = require('moment')
 
 
 
@@ -96,7 +97,16 @@ const productsController = {
                     include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
                     where: { cart_id: result[0].id }
                 }).then(cartItems => {
-                    res.render('./products/cart', { cartItems: cartItems });
+                    let daysQuantity = [];
+
+                    for (let i = 0; i < cartItems.length; i++) {
+                        let fechaIn = moment(cartItems[i].inDate);
+                        let fechaOut = moment(cartItems[i].outDate);
+
+                        daysQuantity.push(fechaOut.diff(fechaIn, 'days'))
+                    }
+
+                    res.render('./products/cart', { cartItems: cartItems, daysQuantity: daysQuantity });
                 })
 
             })
@@ -111,49 +121,33 @@ const productsController = {
             }
         })
             .then(cart => {
-                if (cart[0]) {
-                    db.CartItem.create({
-                        product_id: req.body.id,
-                        cart_id: cart[0].id,
-                        inDate: req.body.inDate,
-                        outDate: req.body.outDate
-                    })
-                        .then(result => {
-                            db.CartItem.findAll({
-                                include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
-                                where: {
-                                    cart_id: result.cart_id,
-                                }
-                            }).then(cartItems => {
-                                res.render('./products/cart', { cartItems: cartItems });
-                            })
+                db.CartItem.create({
+                    product_id: req.body.id,
+                    cart_id: cart[0].id,
+                    inDate: req.body.inDate,
+                    outDate: req.body.outDate
+                })
+                    .then(result => {
+                        db.CartItem.findAll({
+                            include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
+                            where: {
+                                cart_id: result.cart_id,
+                            }
+                        }).then(cartItems => {
 
+                            let daysQuantity = [];
+
+                            for (let i = 0; i < cartItems.length; i++) {
+                                let fechaIn = moment(cartItems[i].inDate);
+                                let fechaOut = moment(cartItems[i].outDate);
+
+                                daysQuantity.push(fechaOut.diff(fechaIn, 'days'))
+                            }
+
+                            res.render('./products/cart', { cartItems: cartItems, daysQuantity: daysQuantity });
                         })
 
-                } else {
-                    db.Cart.create({
-                        user_id: req.session.userLogged.id,
-                        paid: 0
-                    }).then(newCart => {
-                        db.CartItem.create({
-                            product_id: req.body.id,
-                            cart_id: newCart.id,
-                            inDate: req.body.inDate,
-                            outDate: req.body.outDate
-                        })
-                            .then(result => {
-                                db.CartItem.findAll({
-                                    include: [{ model: db.Product, as: 'products', include: ['hotel', 'roomType', 'roomCategory'] }, 'carts'],
-                                    where: {
-                                        cart_id: result.cart_id,
-                                    }
-                                }).then(cartItems => {
-                                    res.render('./products/cart', { cartItems: cartItems });
-                                })
-
-                            })
                     })
-                }
 
             });
 
@@ -268,8 +262,11 @@ const productsController = {
     destroy: (req, res) => {
         db.Product.destroy({
             where: { id: req.params.id }
-        });
-        res.redirect('/products');
+        })
+            .then(result => {
+                res.redirect('/products');
+            })
+
     },
 
     deleteItem: (req, res) => {
@@ -293,12 +290,16 @@ const productsController = {
                 }).then(cartItems => {
 
                     let items = []
+                    let daysQuantity = [];
                     for (let i = 0; i < cartItems.length; i++) {
+                        let fechaIn = moment(cartItems[i].inDate);
+                        let fechaOut = moment(cartItems[i].outDate);
+                        daysQuantity.push(fechaOut.diff(fechaIn, 'days'))
                         items.push({
                             id: cartItems[i].cart_id,
                             title: cartItems[i].products.hotel.name,
                             description: cartItems[i].products.roomType.type + ' ' + cartItems[i].products.roomCategory.category,
-                            unit_price: cartItems[i].products.price,
+                            unit_price: cartItems[i].products.price * daysQuantity[i],
                             quantity: 1,
                         })
                     }

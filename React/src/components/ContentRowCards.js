@@ -19,7 +19,13 @@ let users = {
     icono: "fas fa-user",
 }
 
-let cardProps = [products, hotels, users];
+let offers = {
+    color: "danger",
+    titulo: "Productos en Oferta",
+    icono: "fas fa-dollar-sign",
+}
+
+let cardProps = [products, hotels, users, offers];
 
 
 class ContentRowTop extends Component {
@@ -29,7 +35,8 @@ class ContentRowTop extends Component {
         this.state = {
             productsQuantity: 0,
             hotelsQuantity: 0,
-            usersQuantity: 0
+            usersQuantity: 0,
+            offersQuantity: 0
         }
     }
     componentDidMount() {
@@ -38,9 +45,16 @@ class ContentRowTop extends Component {
                 return resultado.json()
             })
             .then(productos => {
+                let aux = 0;
+                productos.data.products.forEach(producto => {
+                    if (producto.discountRate !== 0) {
+                        aux += 1;
+                    }
+                });
                 this.setState({
                     productsQuantity: productos.data.count,
-                    hotelsQuantity: Object.keys(productos.data.countByCategory).length
+                    hotelsQuantity: Object.keys(productos.data.countByCategory).length,
+                    offersQuantity: aux
                 })
             })
             .catch(error => console.log('Error: ' + error));
