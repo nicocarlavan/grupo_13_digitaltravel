@@ -91,6 +91,14 @@
 -Que unos paeticipen mas que otros
 
 
+#### Sprint 8:
+#### Mal:
+-La distribución de las tareas no estuvo muy bien hecha. 
+#### Bien: 
+-Entregamos a tiempo el sprint. 
+-Cumplimos con todas las consignas.
+
+
 #### _Integrantes_:
 
 `Nicolás Fernández Carlavan`
