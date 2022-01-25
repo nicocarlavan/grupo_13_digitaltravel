@@ -28,8 +28,4 @@ Elegimos estos sitios porque comercializan los mismos productos que nosotros y s
 
 #### _Integrantes_:
 
-`Nicolás Fernández Carlavan`: Tengo 32 años, soy Analista de Sistemas, y estudio Ingenieria en Sistemas en UTN. Me interesa mucho la programación web, por eso me inscribí en este curso.
-
-`Francisca Colombres`: Tengo 19 años. Soy estudiante de filosofía. Es mi primera experiencia en programación. 
-
-`Gonzalo Cardarelli`: Tengo 28 años, estudio ingeniería mecánica y soy administrativo. Actualmente estoy haciendo el curso de programación ya que me interesa y creo que me puede dar otra herramienta para crecimiento laboral y personal.
+`Nicolás Fernández Carlavan`: Tengo 32 años y soy Analista de Sistemas. Me interesa mucho la programación web, por eso me inscribí en este curso.
